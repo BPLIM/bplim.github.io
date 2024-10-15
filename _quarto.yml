@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: docs
+
+book:
+  title: "BPLIM's page"
+  author: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
+  date: "15/10/2024"
+  search: true
+  chapters:
+    - index.qmd
+
+format:
+  html:
+    theme: cosmo
