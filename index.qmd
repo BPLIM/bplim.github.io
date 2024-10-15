@@ -13,7 +13,7 @@ Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
 ### Guides
 
-[Instructional Videos](https://bplim.github.io/Manuals/)
+- [Instructional Videos](https://bplim.github.io/Manuals/)
 
 - [Guide for Researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
 - [Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
