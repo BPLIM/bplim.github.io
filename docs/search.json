@@ -4,6 +4,6 @@
     "href": "index.html",
     "title": "Banco de Portugal’s Microdata Research Laboratory (BPLIM)",
     "section": "",
-    "text": "The website\nVisit https://bplim.bportugal.pt/.\n\n\n<h2>Guides</h2>\n<ul>\n  <li><a href=\"https://bplim.github.io/Manuals/\">Instructional Videos</a></li>\n  <li><a href=\"https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers\">Guide for Researchers</a></li>\n  <li><a href=\"https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide\">Datasets Guide</a></li>\n  <li><a href=\"https://bplim.github.io/Manuals/Guides/06_Output_Control\">Output Control</a></li>\n  <li><a href=\"https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data\">Working with Pseudo-Data</a></li>\n</ul>\n\n\n<h2>Repositories</h2>\n<ul>\n  <li><a href=\"https://github.com/BPLIM/Manuals\">Manuals</a></li>\n  <li><a href=\"https://github.com/BPLIM/Tools\">Tools</a></li>\n  <li><a href=\"https://github.com/BPLIM/ReplicationApp\">Replication App</a></li>\n  <li><a href=\"https://github.com/BPLIM/Workshops\">Workshops</a></li>\n  <li><a href=\"https://github.com/BPLIM/Containers\">Containers</a></li>\n</ul>"
+    "text": "The website\nVisit https://bplim.bportugal.pt/.\n\n\nGuides\nInstructional Videos\n\nGuide for Researchers\nDatasets Guide\nOutput Control\nWorking with Pseudo-Data\n\n\n\nRepositories\n\nManuals\nTools\nReplication App\nWorkshops\nContainers"
   }
 ]
