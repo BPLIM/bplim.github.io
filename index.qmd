@@ -8,29 +8,26 @@ editor: visual
 
 Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
-# Guides
+<div class="row">
+  <div class="col-md-6">
+    <h2>Guides</h2>
+    <ul>
+      <li><a href="https://bplim.github.io/Manuals/">Instructional Videos</a></li>
+      <li><a href="https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers">Guide for Researchers</a></li>
+      <li><a href="https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide">Datasets Guide</a></li>
+      <li><a href="https://bplim.github.io/Manuals/Guides/06_Output_Control">Output Control</a></li>
+      <li><a href="https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data">Working with Pseudo-Data</a></li>
+    </ul>
+  </div>
 
-[Instructional Videos](https://bplim.github.io/Manuals/)
-
-
-- [Guide for Researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
-
-- [Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
-
-- [Output Control](https://bplim.github.io/Manuals/Guides/06_Output_Control)
-
-- [Working with Pseudo-Data](https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data)
-
-
-
-# Github repositories
-
-- [Manuals](https://github.com/BPLIM/Manuals)
-
-- [Tools](https://github.com/BPLIM/Tools)
-
-- [Replication App](https://github.com/BPLIM/ReplicationApp)
-
-- [Workshops](https://github.com/BPLIM/Workshops)
-
-- [Containers](https://github.com/BPLIM/Containers)
+  <div class="col-md-6">
+    <h2>Repositories</h2>
+    <ul>
+      <li><a href="https://github.com/BPLIM/Manuals">Manuals</a></li>
+      <li><a href="https://github.com/BPLIM/Tools">Tools</a></li>
+      <li><a href="https://github.com/BPLIM/ReplicationApp">Replication App</a></li>
+      <li><a href="https://github.com/BPLIM/Workshops">Workshops</a></li>
+      <li><a href="https://github.com/BPLIM/Containers">Containers</a></li>
+    </ul>
+  </div>
+</div>
