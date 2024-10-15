@@ -10,6 +10,9 @@ Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
 # Guides
 
+[Instructional Videos](https://bplim.github.io/Manuals/)
+
+
 - [Guide for Researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
 
 - [Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
@@ -19,10 +22,15 @@ Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 - [Working with Pseudo-Data](https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data)
 
 
-[Instructional Videos](https://bplim.github.io/Manuals/)
 
+# Github repositories
 
-# Github
+- [Manuals](https://github.com/BPLIM/Manuals).
 
-See our [manuals site](https://github.com/BPLIM/Manuals).
+- [Tools](https://github.com/BPLIM/Tools).
 
+- [Workshops](https://github.com/BPLIM/Workshops).
+
+- [Replication App](https://github.com/BPLIM/ReplicationApp).
+
+- [Containers](https://github.com/BPLIM/Containers).
