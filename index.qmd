@@ -29,8 +29,8 @@ Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
 - [Tools](https://github.com/BPLIM/Tools)
 
-- [Workshops](https://github.com/BPLIM/Workshops)
-
 - [Replication App](https://github.com/BPLIM/ReplicationApp)
+
+- [Workshops](https://github.com/BPLIM/Workshops)
 
 - [Containers](https://github.com/BPLIM/Containers)
