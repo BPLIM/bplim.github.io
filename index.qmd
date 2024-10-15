@@ -8,9 +8,7 @@ editor: visual
 
 Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
-See our [manuals site](https://github.com/BPLIM/Manuals).
-
-# See our guides
+# Guides
 
 - [Guide for Researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
 
@@ -21,6 +19,10 @@ See our [manuals site](https://github.com/BPLIM/Manuals).
 - [Working with Pseudo-Data](https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data)
 
 
-[Our Videos](https://bplim.github.io/Manuals/)
+[Instructional Videos](https://bplim.github.io/Manuals/)
 
+
+# Github
+
+See our [manuals site](https://github.com/BPLIM/Manuals).
 
