@@ -11,4 +11,4 @@ Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
 See our [manuals site](https://github.com/BPLIM/Manuals).
 
-[Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
+[BPLIM Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
