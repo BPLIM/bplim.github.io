@@ -8,3 +8,5 @@ editor: visual
 # BPLIM's website
 
 Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
+
+See our [manuals](https://github.com/BPLIM/Manuals).
