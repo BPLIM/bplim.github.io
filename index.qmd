@@ -1,7 +1,8 @@
 ---
 title: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
-format: html
-editor: visual
+format: 
+  html:
+    css: styles.css
 ---
 
 # The website
