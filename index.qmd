@@ -1,14 +1,17 @@
 ---
-title: "BPLIM"
-author: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
+title: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
 format: html
 editor: visual
 ---
 
-# BPLIM's website
+# The website
 
 Visit [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/).
 
 See our [manuals site](https://github.com/BPLIM/Manuals).
 
-[BPLIM Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
+# See our guides
+
+- [Guide for researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
+
+- [Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
