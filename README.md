@@ -1,6 +1,5 @@
 # BPLIM Github
 
-In this page you can find BPLIM documents and other materials made available to help researchers.
-Here we list BPLIM's procedures.
+On this page, you will find BPLIM's documents and resources designed to assist researchers. It provides a comprehensive overview of BPLIM's procedures and guidelines.
 
-[Go to BPLIM page](https://bplim.github.io)
+[Go to BPLIM Page](https://bplim.github.io)
