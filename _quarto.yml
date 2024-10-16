@@ -30,4 +30,8 @@ book:
 
 format:
   html:
-    theme: cosmo
+    #theme: cosmo
+    theme: 
+      - flatly
+      - custom.css
+    code-copy: true
