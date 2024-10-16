@@ -1,5 +1,5 @@
 ---
-title: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
+title: "Banco de Portugal's Microdata Research Laboratory -  BPLIM"
 format: 
   html:
     css: styles.css
