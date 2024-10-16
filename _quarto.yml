@@ -8,7 +8,7 @@ book:
   date: "15/10/2024"
   downloads: [pdf, epub]
   sharing: [twitter, facebook]
-  #cover-image: images/BdP_Logo_2.png 
+  cover-image: images/BdP_Logo_2.png 
   sidebar:
     #logo: images/BdP_Logo_2.png 
     search: true
@@ -34,4 +34,6 @@ format:
     theme: 
       - flatly
       - custom.css
-    code-copy: true
+    #code-copy: true
+  pdf:
+    documentclass: scrreprt
