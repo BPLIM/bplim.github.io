@@ -9,6 +9,20 @@ book:
   downloads: [pdf, epub]
   sharing: [twitter, facebook]
   #cover-image: images/BdP_Logo_2.png 
+  sidebar:
+    #logo: images/BdP_Logo_2.png 
+    search: true
+    style: "docked"
+    border: true
+    pinned: false
+    collapse-level: 1
+    background: "#e2ecf1"
+  page-footer:
+    left: |
+      BPLIM, by BPLIM Team
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+    
   search: true
   
   chapters:
