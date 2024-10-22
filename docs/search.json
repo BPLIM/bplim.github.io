@@ -1,16 +1,23 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Banco de Portugal’s Microdata Research Laboratory (BPLIM)",
+    "objectID": "manuals.html",
+    "href": "manuals.html",
+    "title": "BPLIM",
     "section": "",
-    "text": "Website\nVisit the official website https://bplim.bportugal.pt/\n\n\nGuides\n\nInstructional Videos\nGuide for Researchers\nDatasets Guide\nOutput Control\nWorking with Pseudo-Data\n\n\n\nRepositories\n\nManuals\nTools\nReplication App\nWorkshops\nContainers"
+    "text": "Data Manuals\n\nBBS\nCB\nCBHP\nCRC\nGE\nHCRC\nIBACH\nIREE\nSI\nSLB"
   },
   {
-    "objectID": "readme.html",
-    "href": "readme.html",
-    "title": "BPLIM Github",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Banco de Portugal Microdata Research Laboratory",
     "section": "",
-    "text": "BPLIM Github\nIn this page you can find BPLIM documents and other materials made available to help researchers. Here we list BPLIM’s procedures.\nGo to BPLIM page"
+    "text": "Welcome to BPLIM"
+  },
+  {
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": "BPLIM",
+    "section": "",
+    "text": "Guides\n\nGuide for Researchers\nDatasets Guide\nExternal Server\nHow to use Git\nHow to use Containers\nOutput Control\nWorking with Pseudo-Data\nContainers\nReplication App\n\n\n\nWebsite\n\n\n\n\n\n\n\nInstructional Videos\n\n\n\n\n\n\n\nGuides\n\n\n\n\n\n\n\nData Manuals\n\n\n\n\n\n\n\nTools\n\n\n\n\n\n\n\nWorkshops"
   }
 ]
