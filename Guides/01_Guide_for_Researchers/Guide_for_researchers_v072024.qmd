@@ -1,9 +1,5 @@
 ---
-format: 
-  html:
-    theme: Flatly
-    css: styles.css
-    toc: false
+title: Guide for researchers
 ---
 
 {{< pagebreak >}}

@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BPLIM - External Server Guide</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/data.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">BPLIM</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bplim.bportugal.pt/">
+ <span class="menu-text">Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bplim.github.io/Manuals/">
+ <span class="menu-text">Instructional Videos</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Guides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-guides">    
+        <li>
+    <a class="dropdown-item" href="../../Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.html">
+ <span class="dropdown-text">Guide for researchers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v102024.html">
+ <span class="dropdown-text">Datasets guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/03_External_Server/External_Server_Guide.html">
+ <span class="dropdown-text">External server</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/04_How_to_use_Git/Guide_Git.html">
+ <span class="dropdown-text">Using Git</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/05_How_to_use_Containers/Guide_Containers.html">
+ <span class="dropdown-text">How to use containers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/06_Output_Control/Output_Control_Guide.html">
+ <span class="dropdown-text">Output control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.html">
+ <span class="dropdown-text">Work with Pseudo-Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../manuals.html">
+ <span class="menu-text">Data Manuals</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/BPLIM/Tools/">
+ <span class="menu-text">Tools</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/BPLIM/Workshops/">
+ <span class="menu-text">Workshops</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">External Server Guide</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://bplim.bportugal.pt/" class="sidebar-item-text sidebar-link">Website</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://bplim.github.io/Manuals/" class="sidebar-item-text sidebar-link">Instructional Videos</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Guides</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.html" class="sidebar-item-text sidebar-link">Guide for researchers</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v102024.html" class="sidebar-item-text sidebar-link">Datasets guide</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/03_External_Server/External_Server_Guide.html" class="sidebar-item-text sidebar-link active">External server</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/04_How_to_use_Git/Guide_Git.html" class="sidebar-item-text sidebar-link">Using Git</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/05_How_to_use_Containers/Guide_Containers.html" class="sidebar-item-text sidebar-link">How to use containers</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/06_Output_Control/Output_Control_Guide.html" class="sidebar-item-text sidebar-link">Output control</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.html" class="sidebar-item-text sidebar-link">Work with Pseudo-Data</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../manuals.html" class="sidebar-item-text sidebar-link">Data Manuals</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/BPLIM/Tools/" class="sidebar-item-text sidebar-link">Tools</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/BPLIM/Workshops/" class="sidebar-item-text sidebar-link">Workshops</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#access-to-the-external-server" id="toc-access-to-the-external-server" class="nav-link active" data-scroll-target="#access-to-the-external-server">Access to the External Server</a>
+  <ul class="collapse">
+  <li><a href="#upon-access-approval" id="toc-upon-access-approval" class="nav-link" data-scroll-target="#upon-access-approval">Upon access approval</a></li>
+  <li><a href="#password-policy" id="toc-password-policy" class="nav-link" data-scroll-target="#password-policy">Password policy</a></li>
+  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First steps</a></li>
+  </ul></li>
+  <li><a href="#important-guidelines" id="toc-important-guidelines" class="nav-link" data-scroll-target="#important-guidelines">Important guidelines</a>
+  <ul class="collapse">
+  <li><a href="#keep-your-home-area-tidy" id="toc-keep-your-home-area-tidy" class="nav-link" data-scroll-target="#keep-your-home-area-tidy">Keep your home area tidy</a></li>
+  <li><a href="#using-the-terminal" id="toc-using-the-terminal" class="nav-link" data-scroll-target="#using-the-terminal">Using the Terminal</a></li>
+  </ul></li>
+  <li><a href="#statistical_software" id="toc-statistical_software" class="nav-link" data-scroll-target="#statistical_software">Statistical software</a>
+  <ul class="collapse">
+  <li><a href="#stata" id="toc-stata" class="nav-link" data-scroll-target="#stata">Stata</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a>
+  <ul class="collapse">
+  <li><a href="#alternative-a" id="toc-alternative-a" class="nav-link" data-scroll-target="#alternative-a">Alternative A</a></li>
+  <li><a href="#alternative-b-using-a-container-see-the-discussion-in-the-appendix" id="toc-alternative-b-using-a-container-see-the-discussion-in-the-appendix" class="nav-link" data-scroll-target="#alternative-b-using-a-container-see-the-discussion-in-the-appendix">Alternative B: using a container (see the discussion in the Appendix)</a></li>
+  </ul></li>
+  <li><a href="#updates-to-the-commands-and-packages-list" id="toc-updates-to-the-commands-and-packages-list" class="nav-link" data-scroll-target="#updates-to-the-commands-and-packages-list">Updates to the commands and packages list</a></li>
+  <li><a href="#build-a-container-to-fine-tune-your-statistical-packages" id="toc-build-a-container-to-fine-tune-your-statistical-packages" class="nav-link" data-scroll-target="#build-a-container-to-fine-tune-your-statistical-packages">Build a container to fine-tune your statistical packages</a></li>
+  </ul></li>
+  <li><a href="#allowed-outputs" id="toc-allowed-outputs" class="nav-link" data-scroll-target="#allowed-outputs">Allowed outputs</a></li>
+  <li><a href="#removing-outputs" id="toc-removing-outputs" class="nav-link" data-scroll-target="#removing-outputs">Removing outputs</a></li>
+  <li><a href="#users-home-folder" id="toc-users-home-folder" class="nav-link" data-scroll-target="#users-home-folder">User’s Home folder</a></li>
+  <li><a href="#scientific-support" id="toc-scientific-support" class="nav-link" data-scroll-target="#scientific-support">Scientific support</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#shell_commands" id="toc-shell_commands" class="nav-link" data-scroll-target="#shell_commands">Basic ‘shell’ commands on Linux</a></li>
+  <li><a href="#using-the-vi-file-editor" id="toc-using-the-vi-file-editor" class="nav-link" data-scroll-target="#using-the-vi-file-editor">Using the ‘vi’ file editor</a></li>
+  <li><a href="#password" id="toc-password" class="nav-link" data-scroll-target="#password">External server’s password requirements</a></li>
+  <li><a href="#install_nomachine" id="toc-install_nomachine" class="nav-link" data-scroll-target="#install_nomachine">Download, install and configure NoMachine client</a></li>
+  <li><a href="#frequently-asked-questions" id="toc-frequently-asked-questions" class="nav-link" data-scroll-target="#frequently-asked-questions">Frequently Asked Questions</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version control</a></li>
+  <li><a href="#containers" id="toc-containers" class="nav-link" data-scroll-target="#containers">Containers</a>
+  <ul class="collapse">
+  <li><a href="#build-your-container" id="toc-build-your-container" class="nav-link" data-scroll-target="#build-your-container">Build your container</a></li>
+  <li><a href="#use-the-container-in-bplims-server" id="toc-use-the-container-in-bplims-server" class="nav-link" data-scroll-target="#use-the-container-in-bplims-server">Use the container in BPLIM’s server</a></li>
+  </ul></li>
+  <li><a href="#jupyter-lab" id="toc-jupyter-lab" class="nav-link" data-scroll-target="#jupyter-lab">Jupyter Lab</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">External Server Guide</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div style="page-break-after: always;"></div>
+<!---
+
+1. open TERMINAL
+2. RUN THE FOLLOWING LINE IN THE TERMINAL
+
+> MAC > cd /Users/zxc/Documents/GitHub/Manuals/ExternalServer
+
+> Gab. 1.19 > C:\Users\fst.EEG\Documents\Manuals\ExternalServer
+
+> ACREM > C:\Users\asd\Documents\GitHub\Manuals\ExternalServer
+
+> Desktop > C:\Users\exu0o9\Documents\GitHub\Manuals\ExternalServer
+
+pandoc --toc --number-sections External_Server_Manual.md --pdf-engine=xelatex -o External_Server_Manual.pdf
+
+
+
+ALTERNATIVE
+
+https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf
+
+-->
+<!---
+
+About BPLIM
+=========================
+
+The ability to collect and accumulate microdata has been a powerful
+function of central banks. In the scientific community, an increasing
+number of research has been conducted using the micro-level
+information. To enhance collaborations between the central bank and
+the researchers, an advanced data-sharing platform is essential.
+Accordingly, the Banco de Portugal Microdata Research Laboratory
+(BPLIM) (*Laboratório de Investigação em Microdados do Banco de
+Portugal*) is created to facilitate future scientific research effort
+that incorporates the use of microdata. By eliminating the data access
+barrier, BPLIM aims to inspire researches that effectively utilize the
+Portuguese administrative micro datasets and contribute to our
+understanding of the economic and financial challenges of our time.
+
+Data Confidentiality
+==================================
+
+While researchers prefer unrestricted access to data, care must be
+given to secure the confidentiality of the data providers. All the access
+granted to microdata should obey the applicable law, and the data
+should only be used for research purposes.
+
+Therefore, the data is only made available to the Banco de Portugal's
+internal researchers and those approved external researchers who have
+agreed to the bank's legal provisions concerning the use of its data.
+Specifically, each external researcher is required to sign a
+Confidentiality Agreement with the bank and will only be allowed to
+access a customized set of data that is tailored to his/her research
+needs. All micro data sets made accessible to external researchers
+will be anonymized and stored in information systems belonging to
+Banco de Portugal (BdP).
+
+The type of access to the Microdata varies according to levels of
+confidentiality (low, medium, high).
+
+-   **Low**: information that can be obtained from the public or
+    scientific community by other institutions
+
+-   **Medium**: information pertaining to institutions (firms, banks,
+    etc.) not included in the previous case (some CB, CRC Firms, Bank
+    Balance Sheet Data).
+
+-   **High**: information about individuals or households not included
+    in the **Low** case (CRC Individuals).
+
+-->
+<!--=========================================== --->
+<section id="access-to-the-external-server" class="level1">
+<h1>Access to the External Server</h1>
+<section id="upon-access-approval" class="level2">
+<h2 class="anchored" data-anchor-id="upon-access-approval">Upon access approval</h2>
+<p>The User will be able to connect to the external server using <code>NoMachine</code> client access: see <a href="#install_nomachine">Section 8.4</a> for details on installation and use.</p>
+<!--- one of two possibilities.
+  - Browser access (_low performance_): see [Section 8.4](#browser_access) for further details
+-->
+</section>
+<section id="password-policy" class="level2">
+<h2 class="anchored" data-anchor-id="password-policy">Password policy</h2>
+<ul>
+<li>The first password delivered must be changed at the first login.</li>
+<li>After <strong>60 days</strong> the password will expire: the login window will show <code>new password</code></li>
+<li>The passwords to be specified must meet the requirements described in <a href="#password">Section 8.3</a>.</li>
+</ul>
+</section>
+<section id="first-steps" class="level2">
+<h2 class="anchored" data-anchor-id="first-steps">First steps</h2>
+<p>Once you start <code>NoMachine</code>, these are the first three screens you will see:</p>
+<p><img src="./media/image1.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="./media/image2.png" class="img-fluid" style="width:65.0%"></p>
+<p><img src="./media/image3.png" class="img-fluid" style="width:65.0%"></p>
+<ol start="4" type="1">
+<li>Select the “<strong>Kickoff Application Launcher</strong>” menu (in the lower left corner):</li>
+</ol>
+<p><img src="./media/image4.png" class="img-fluid" style="width:10.0%"></p>
+<p><img src="./media/image5.png" class="img-fluid" style="width:50.0%"></p>
+<ol start="5" type="1">
+<li>Then you should:</li>
+</ol>
+<ul>
+<li>Click on the “<strong>Applications</strong>” button</li>
+<li>Select <strong>“BPLIM”</strong> and click on your project (i.e., “pxxx_name”). At this stage, you should see a graphical environment (‘Dolphin’ application<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>) like this:</li>
+</ul>
+<p><img src="./media/image6.png" style="width:4.72441in;height:2.80866in"></p>
+<p>You can see the prompt command line together with ‘Dolphin’ using the keyboard shortcut ‘F4’.</p>
+<blockquote class="blockquote">
+<ol start="3" type="a">
+<li>Files with the "<strong>sh</strong>" extension allow you to send commands to your operating system or to enter your operating system for interactive use (for example, the file <em>xstata17mp.sh</em> will launch the graphical version of Stata 17). You can start the application by double-clicking the file name in ‘Dolphin’<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> or by typing in the Terminal <code>xstata17mp.sh</code></li>
+</ol>
+</blockquote>
+<ol start="6" type="1">
+<li>The directories that you have access to within the folder include:</li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>initial_dataset</strong></td>
+<td><p>Data sources provided by BPLIM.</p>
+<p><em>You have read-only access to this directory.</em></p></td>
+</tr>
+<tr class="even">
+<td><strong>initial_dataset/modified</strong></td>
+<td>Modified data provided by BPLIM.</td>
+</tr>
+<tr class="odd">
+<td><strong>results</strong></td>
+<td><p>Output files that researchers wish to generate and extract from the server.</p>
+<p><em>You have read-write access to this directory.</em></p></td>
+</tr>
+<tr class="even">
+<td><strong>tools</strong></td>
+<td><p>Specific analysis tools.</p>
+<p><em>You have read-only access to this directory.</em></p></td>
+</tr>
+<tr class="odd">
+<td><strong>work_area</strong></td>
+<td><p>Temporary work directory.</p>
+<p><em>You have read-write access to this directory.</em></p></td>
+</tr>
+<tr class="even">
+<td><strong>/bplimext/doc/Manuals</strong></td>
+<td>Manuals and auxiliary files are available here.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>You will have in your <strong>work_area</strong> folder templates for both Stata and R(<code>R.sh</code>). By default, the template file is read-only.</li>
+</ul>
+<ol start="7" type="1">
+<li>To reset and disconnect the remote desktop connection or session, you can simply log out of your remote session, as shown in the screenshot below. After you log out, close the window.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ol>
+<p><img src="./media/image7.png" style="width:3.14961in;height:3.50521in"></p>
+<p>Confirm before exiting by clicking on the <strong>“Logout”</strong> button to close the window:<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><img src="./media/image8.png" style="width:1.14236in;height:0.52288in"></p>
+<ul>
+<li>In case you do not logout, your session will be left open until your next login. You may use this facility to run your programs. However, one must be aware that this option uses resources from the server, so the efficient solution to run your programs “overnight” is using the batch mode as described in Step 6 below. Furthermore, in case the server is rebooted during a maintenance procedure, your session will be automatically closed, and unsaved documents will be lost. We recommend you save at regular intervals your statistical programs.</li>
+</ul>
+</section>
+</section>
+<section id="important-guidelines" class="level1">
+<h1>Important guidelines</h1>
+<section id="keep-your-home-area-tidy" class="level2">
+<h2 class="anchored" data-anchor-id="keep-your-home-area-tidy">Keep your home area tidy</h2>
+<ul>
+<li><p><em>Do not save files in your home area</em> <code>/home/USER_LOGIN</code>. <em>In case you exceed its size you will not be able to login.</em></p></li>
+<li><p>Check regularly the size of your project on the harddrive. Open a Terminal and apply the following steps:</p></li>
+</ul>
+<ol type="1">
+<li>Move to the project folder: <code>cd /bplimext/projects/p000_xxx_yyy/</code></li>
+<li>List project size: <code>du -h</code></li>
+<li>Check size by folder and list folders with at least 1Gb: <code>du --max-depth 1 -h | sort -n | grep G</code></li>
+<li>Move to the folder ‘work_area’: <code>cd work_area</code></li>
+<li>Repeat the check in this folder: <code>du --max-depth 1 -h | sort -n | grep G</code></li>
+<li>Identify duplicated and temporary files and delete them: use the command <code>rm</code></li>
+<li>Compress big files/folders you are not using at the moment:</li>
+</ol>
+<blockquote class="blockquote">
+<p>Compress folders: <code>tar -zcvf YOUR_FOLDER.tar.gz YOUR_FOLDER</code></p>
+<p>Compress individual files: <code>gzip YOUR_FILE</code></p>
+</blockquote>
+</section>
+<section id="using-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-terminal">Using the Terminal</h2>
+<p>Linux’s Terminal is a command-line interpreter. You can use the ‘shell’ for a wide range of tasks, including searching files and files’ contents, organizing your working space, and, most importantly, running your programs in <code>batch</code> mode.</p>
+<ol type="1">
+<li>Linux’s Terminal can be accessed from<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+</ol>
+<p>RedHat &gt; Applications &gt; System &gt; Terminal</p>
+<p><img src="./media/image9.png" style="width:3.93701in;height:1.84868in"></p>
+<ol start="2" type="1">
+<li><p>See <a href="#shell_commands">Section 8.1</a> for a list of some of the most used commands.</p></li>
+<li><p>If you use a non-English keyboard, the ‘true’ keyboard might be different from the one you see. The changes apply mostly to the symbols, not letters or numbers. For example, in case you have a Portuguese keyboard on your computer the ‘+’ is now in key ‘?’, or the ‘*’ is in SHIFT + ?. This issue is specific to the Operating System of your computer</p></li>
+<li><p>Remember that Linux is case-sensitive: e.g., “<code>LS</code>” and “<code>ls</code>” are treated as different commands.</p></li>
+<li><p>You can use the arrow keys to scroll up and down through the commands you have entered.</p></li>
+<li><p>You can use the “Tab” key to complete the command line automatically.</p></li>
+<li><p><em>e.g.</em>, type the following line to list elements within a folder in a ‘human-readable’ format, <code>h</code>, long list format, <code>l</code>, in reverse order, <code>r</code>, sort by modification time, <code>t</code>, and almost all files, <code>A</code>,</p>
+<p><code>ls -lArth</code></p></li>
+</ol>
+</section>
+</section>
+<section id="statistical_software" class="level1">
+<h1>Statistical software</h1>
+<p>The installation of additional commands/packages must be requested from the BPLIM team, bplim@bportugal.pt. Researchers are not allowed to install new commands/packages on the server autonomously.</p>
+<section id="stata" class="level2">
+<h2 class="anchored" data-anchor-id="stata">Stata</h2>
+<p>Stata versions available in the server: 15, 16 and 17 (adjust the following lines to the Stata version you want to use)</p>
+<ol type="1">
+<li>Stata can be accessed in interactive graphical or non-graphical modes.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+</ol>
+<ul>
+<li><p>Interactive non-graphical mode</p>
+<p>Move to the desired folder, e.g.,</p>
+<p><code>cd /bplimext/projects/I001_jdoe/</code></p>
+<p>and type</p>
+<p><code>stata17-mp</code></p></li>
+</ul>
+<p><img src="./media/image10.png" style="width:3.54331in;height:2.4886in"></p>
+<ul>
+<li><p>You may add a ‘PATH’ to your system folder by typing, for example on Stata 16, the following command in the shell “vi ~/.bash_profile” and adapt the following line</p>
+<p><code>PATH=$PATH:$HOME/.local/bin:$HOME/bin:/opt/bplimext/stata17</code></p></li>
+<li><p>For the interactive graphical mode click on the icons “<strong>xstata17mp.sh</strong>” (Stata 17) located in the ‘desktop’, depending on the desired Stata version,</p></li>
+</ul>
+<p><img src="./media/image11.png" style="width:0.59055in;height:0.46654in"></p>
+<p><img src="./media/image12.png" style="width:3.93701in;height:2.48638in"></p>
+<ul>
+<li><p>You can use the ‘Do-file Editor’ in Stata to create your own “do-files” and “ado-files”, or you can use <em>KWrite</em> editor (or ‘gedit’)</p></li>
+<li><p>You can open it from <strong>RedHat</strong> &gt; <strong>Applications</strong> &gt; <strong>Utilities</strong> &gt; <strong>KWrite</strong>. You can also launch ‘KWrite’ from the ‘shell’ by typing ‘kwrite’</p></li>
+<li><p>In case the Stata’s icon is not on your desktop, use Dolphin, move to the folder ‘/bplimext/scripts/wrappers/’, and drag and drop the file ‘xstata17-mp’ into the desktop</p></li>
+</ul>
+<p><img src="./media/image12b.png" style="width:3.93701in;height:2.48638in"></p>
+<p><strong>NOTE</strong>: to start Stata use the shortcuts in your project’s folder.</p>
+<ol start="2" type="1">
+<li>To look for <strong>“ado-files”</strong>:</li>
+</ol>
+<p>“Ado-files” are text files containing the Stata program. It is advisable that one create and save his/her “ado-files” so the results can be replicated later by running the saved “ado-files” on the BPLIM’s datasets.</p>
+<p>Stata looks for “ado-files” in several places. When it comes to personal ado-directories, they can be categorized in four ways:</p>
+<ul>
+<li><p>(SITE), the directory for “ado-files” your site might have installed;</p></li>
+<li><p>(PLUS), the directory for “ado-files” you might have installed;</p></li>
+<li><p>(PERSONAL), the directory for “ado-files” you might have written;</p></li>
+<li><p>(OLDPLACE), the directory where Stata users used to save their personally written ado-files.</p></li>
+</ul>
+<p>The ado-files you have just written or those created for this project can be found in the current directory (.).</p>
+<p>Specific ‘ado-files’ you may ask to be made available in the server will be placed in your folder ‘/bplimext/projects/YOURPROJECTID/tools’. You should add this folder to your Stata ‘ado-files’ folder by executing the following command within Stata,</p>
+<p><code>sysdir set PERSONAL "/bplimext/projects/YOURPROJECTID/tools"</code></p>
+<p>You may also edit your ‘profile.do’ file, located in your root folder, “/home/YOURPROJECTID/”, and add key instructions you may want to be executed every time you start Stata. The above instruction is one of such cases. You can create or edit the file ‘profile.do’ using ‘Do-file Editor’ within Stata (‘vi profile.do’ or KWrite are also a possibility).</p>
+<p>The <strong><em>sysdir</em></strong> command within Stata will tell you where they are on your computer:</p>
+<p><img src="./media/image13.png" style="width:3.93681in;height:2.27514in"></p>
+<!---
+3. Stata's temporary files:
+
+> Check the location of the folder with temporary files
+
+- In the command line in Stata type the following two commands to check the location of your temporary folder (`tempfile`):
+
+> `tempfile junk`
+
+> `display "``junk'"`
+
+> In the work_area of your project add a folder named `.TMP`
+
+> Using the Terminal, go to your home folder, `cd ~`, and the file `.bashrc` (e.g., with `kwrite` or `vim`) and add the following lines:
+
+> `STATATMP="/bplimext/projects/YOUR_PROJECT_ID/work_area/.TMP"`
+
+> `export STATATMP`
+
+> In the Terminal type `source .bashrc`
+
+> In the Linux Taskbar click in the RedHat and choose Logout
+
+> Re-start your NoMachine session
+
+> Start Stata and confirm that your `tempfile` folder is pointing to the folder `.TMP`
+
+## 'batch' mode: an example using Stata
+-->
+<ol type="1">
+<li>Start a <em>'<strong>shell</strong>'</em> in Linux and navigate to the directory of the “do-file” file that you want to run (ex: prog1.do)</li>
+</ol>
+<p><code>cd /bplimext/projects/I001_jdoe/work_area/</code></p>
+<ol start="2" type="1">
+<li>You might find it easier to use ‘Dolphin’ (= File Manager) to move over your folder structure. In this case, we recommend activating the ‘shell’ (= ‘Terminal’) associated with ‘Dolphin’</li>
+</ol>
+<ul>
+<li><p>use Dolphin/File Manager</p></li>
+<li><p>click ‘F4’ to activate the shell with Dolphin. Benefit: fast transition within folders and, at the same time, the ability to run shell commands</p></li>
+</ul>
+<ol start="3" type="1">
+<li><p>Create an ASCII file named, e.g., ‘batch_prog1’</p></li>
+<li><p>Inside the file, write just a line with the execution command you would type in the ‘shell’; e.g.,</p>
+<p><code>/bplimext/projects/I001_jdoe/stata-mp do</code></p>
+<p><code>/bplimext/projects/I001_jdoe/work_area/prog1.do</code></p></li>
+<li><p>You can use, for example, the command line app ‘vi’ to create the batch file</p></li>
+</ol>
+<p><img src="./media/image14.png" style="width:3.54331in;height:0.81802in"></p>
+<ol start="6" type="1">
+<li>The batch file can also be created using apps like ‘kwrite’ or Stata ‘do file editor’</li>
+</ol>
+<p><img src="./media/image15.png" style="width:3.54331in;height:1.11324in"></p>
+<p>or</p>
+<p><img src="./media/image16.png" style="width:3.54331in;height:2.01342in"></p>
+<ol start="7" type="1">
+<li><p>You may add the extension ‘.txt’ to the name of the batch file, as sometimes Stata <em>doeditor</em> does not ‘see’ the file ‘batch’, while it ‘sees’ ‘batch.txt’</p></li>
+<li><p>Once the batch file is created, one runs the <code>.do</code> file in batch mode by typing in the ‘Terminal’:</p>
+<p><code>at now -f batch.txt</code></p></li>
+<li><p>Type ‘man at’ to see a further option of the command ‘<code>at</code>’; e.g., one could type</p>
+<p><code>at now + 5 hours -f batch.txt</code></p></li>
+</ol>
+<p>or</p>
+<pre><code>`at now + 4 minutes -f batch_prog1`</code></pre>
+<p>to run the Stata program within 5 hours or 4 minutes from now, respectively. ‘<code>man</code>’ is the help function in Linux</p>
+<ol start="10" type="1">
+<li><p>Type ‘<code>top</code>’ in the shell/Terminal to confirm the program is running</p></li>
+<li><p>Under ‘<code>top</code>’ type ‘<code>i</code>’ to hide irrelevant processes (show less output)</p></li>
+<li><p>To kill a running process with ‘<code>top</code>’ press ‘<code>k</code>’, for ‘<code>kill</code>’, write &gt; the process number and then type ‘<code>9</code>’. The process number is &gt; identified in the first column as PID</p></li>
+<li><p>To get out of the <code>top</code>, type ‘<code>q</code>’</p></li>
+<li><p>Useful features of the command ‘<code>at</code>’:</p></li>
+</ol>
+<ul>
+<li><p>‘<code>atq</code>’: use it to see programs in the batch queue (an ‘<code>=</code>’ sign indicates the program is running; an ‘<code>a</code>’ indicates it is in the queue and we see the time when it will be executed)</p></li>
+<li><p>‘<code>atrm</code> #’: remove a batch from the batch queue</p></li>
+<li><p>one can see how the batch is running by typing</p>
+<p><code>tail --f logcrc_may21.log</code></p></li>
+</ul>
+<p>It allows you to see an updated version of the last lines of the log; <em>i.e.</em>, it updates each time Stata changes the log. A key advantage of <code>tail</code> is that it does not interfere with the log file. Namely, it does not write over it.</p>
+<ol start="15" type="1">
+<li>Another way to run a program in the background is by using the command ‘<code>screen</code>’</li>
+</ol>
+<ul>
+<li><p>‘<code>screen</code>’ is useful when one wants to run Stata in interactive mode and still guarantees that if the network connection goes down one does not lose the session. We can simply kill the ‘NoMachine’ session and recover it later by typing ‘<code>screen --r</code>’</p></li>
+<li><p>We can run several instances of <code>screen</code>. If this is the case, after opening a new NoMachine session, we need to type in the Terminal shell ‘<code>screen -d</code>’ to identify the running background sessions. We can retrieve a particular session by knowing the ‘<code>pid</code>’ number and typing ‘<code>screen -r 34176</code>’</p></li>
+</ul>
+</section>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
+<ol type="1">
+<li>As with Stata, R can be accessed in interactive graphical or non-graphical modes.</li>
+</ol>
+<ul>
+<li>Interactive non-graphical mode: go to the RedHat symbol and type `R’ in the Search box</li>
+</ul>
+<p><img src="./media/CallR.png" class="img-fluid" style="width:50.0%"></p>
+<ul>
+<li>Alternatively, you can open a Terminal and type</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>R</code></p>
+</blockquote>
+<ul>
+<li>Please make sure R is in your PATH; type <code>$PATH</code> in the Terminal. If this is not the case, type <code>PATH=$PATH:/usr/bin/</code></li>
+</ul>
+<ol start="2" type="1">
+<li>Using RStudio.</li>
+</ol>
+<ul>
+<li>Open a Terminal and type</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>rstudio</code></p>
+</blockquote>
+<ul>
+<li>Please make sure RStudio is in your PATH; type $PATH in the Terminal. If this is not the case, type</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>PATH=$PATH:/opt/bplimext/R/usr/lib64/rstudio/bin/</code></p>
+</blockquote>
+<ul>
+<li>In case you face difficulties opening/saving files in RStudio, please open a Terminal and type</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>/bplimext/scripts/wrappers/R.sh</code></p>
+</blockquote>
+<p><strong>IMPORTANT</strong>: do not save your workspace image in your home folder (<code>Save workspace image? [y/n/c]</code>). If you want to keep the workspace file save it in your project folder under <code>work_area</code>.</p>
+<p><strong>RStudio Font Type</strong>: please make sure you are not using Font Type Courier (Menu Tools, Global Options, Appearance …)</p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<ol type="1">
+<li>Open a Terminal and type</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>python3</code></p>
+</blockquote>
+</section>
+<section id="julia" class="level2">
+<h2 class="anchored" data-anchor-id="julia">Julia</h2>
+<section id="alternative-a" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-a">Alternative A</h3>
+<ol type="1">
+<li>Open a Terminal and type (<code>julia</code> is located in /opt/bplimext/julia/lib/, you can add it to your <code>PATH</code>)</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>julia</code></p>
+</blockquote>
+<ol start="2" type="1">
+<li>Use Atom: open a Terminal and type</li>
+</ol>
+<blockquote class="blockquote">
+<p><code>atom</code></p>
+</blockquote>
+</section>
+<section id="alternative-b-using-a-container-see-the-discussion-in-the-appendix" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-b-using-a-container-see-the-discussion-in-the-appendix">Alternative B: using a container (see the discussion in the Appendix)</h3>
+<ol type="1">
+<li>Request a container with <strong><code>Julia</code></strong> for your project</li>
+</ol>
+<blockquote class="blockquote">
+<p>The container will be in the folder <code>tools</code> inside the project folder</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Advantages</strong>: you can build a Julia setup fine-tuned to your project, including the definition of Julia’s version and packages</p>
+</blockquote>
+</section>
+</section>
+<section id="updates-to-the-commands-and-packages-list" class="level2">
+<h2 class="anchored" data-anchor-id="updates-to-the-commands-and-packages-list">Updates to the commands and packages list</h2>
+<p>Additional commands/packages or updates to the existing ones have to be requested from BPLIM’s Team.</p>
+</section>
+<section id="build-a-container-to-fine-tune-your-statistical-packages" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-container-to-fine-tune-your-statistical-packages">Build a container to fine-tune your statistical packages</h2>
+<p>You can use Singularity containers in the server. To do so, please send us the definition file so we build the image and put it in your working area. You can find detailed information on Singularity containers at <a href="https://sylabs.io/">https://sylabs.io/</a>. We provide some notes in the Appendix</p>
+</section>
+</section>
+<section id="allowed-outputs" class="level1">
+<h1>Allowed outputs</h1>
+<p>Stata results can be exported to a file on disk using one of the following formats:</p>
+<ol type="1">
+<li><p>ASCII files: e.g., log files</p></li>
+<li><p>graphs: as <code>.PNG</code> (do not use the option save, or saving, within a graph command; instead, use the separate command line ‘graph export xyz.png’)</p></li>
+<li><p>csv: CSV (Comma Separated Value format), <em>e.g.</em>, for use with MS Excel</p></li>
+<li><p>rtf: Rich Text Format for use with word processors</p></li>
+<li><p>xls or xlsx: Excel files with output tables</p></li>
+<li><p>tex: format</p></li>
+</ol>
+</section>
+<section id="removing-outputs" class="level1">
+<h1>Removing outputs</h1>
+<p>The output files, e.g., log files or images, must be requested from the BPLIM team, bplim@bportugal.pt. Researchers are not allowed to place or remove files on the server autonomously.</p>
+<p>Place in the “<u>results</u>” folder all the outputs you want to remove from the server.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<ol type="1">
+<li><p>Send an email with the title “<strong>project I001_jdoe</strong>: request for result extraction” to “<strong><u>bplim@bportugal.pt</u></strong>”.</p></li>
+<li><p>Upon validation, the results will be sent to you via email.</p></li>
+</ol>
+</section>
+<section id="users-home-folder" class="level1">
+<h1>User’s Home folder</h1>
+<ol type="1">
+<li><p>Do not save files in your Home folder: “/home/USER_ID/”.</p></li>
+<li><p>Regularly clean your Trash folder. If your disk use goes over the quota, you will be prevented from login in. In the Terminal type:</p>
+<p><code>rm -rf ~/.local/share/Trash/*</code></p></li>
+</ol>
+</section>
+<section id="scientific-support" class="level1">
+<h1>Scientific support</h1>
+<p>Researchers will be provided with the necessary scientific and computational support (<em>i.e.</em>, advises on programming, computational resources, micro econometrics, and econometrics of panel data for research undertaken with the selected microdata).</p>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="shell_commands" class="level2">
+<h2 class="anchored" data-anchor-id="shell_commands">Basic ‘shell’ commands on Linux</h2>
+<ul>
+<li><p><code>top</code>: List the procedures that are being executed on the server</p>
+<ul>
+<li><p>press ‘<code>i</code>’ option to omit background processes;</p></li>
+<li><p>clicar press ‘<code>h</code>’ para <strong><em>help on top options</em></strong> ; ‘<code>h</code>’ &gt; option to obtain the <strong>top command help</strong>.</p></li>
+</ul></li>
+<li><p><code>pwd</code>: Show current working directory</p></li>
+<li><p><code>cd</code>: Change directory</p>
+<p><code>cd /bplimext/projects/I001_jdoe/work_area/</code></p>
+<p>‘<code>cd ~</code>’ moves to your home folder</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>cp</code>: Copy file(s) to a given path</p>
+<p><code>cp prog1.do /bplimext/projects/I001_jdoe/results</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>mv</code>: Move file(s) or rename a file from a given path</p>
+<p><code>mv prog1.do /bplimext/projects/I001_jdoe/results</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>rm</code>: Delete a file</p>
+<p><code>rm /bplimext/projects/I001_jdoe/results/prog1.do</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>mkdir</code>: Creates a directory</p>
+<p><code>mkdir programs</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>rmdir</code>: Deletes a directory</p>
+<p><code>rmdir programs</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>screen</code>: Switch between screen</p>
+<p><code>screen top</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><code>man</code>: Show the manual page for the given command</p>
+<p><code>man ls</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><code>du -h</code>: Check the information on disk usage of files and directories.</li>
+</ul>
+<blockquote class="blockquote">
+<p>The “<code>-h</code>” option with “<code>du</code>” command provides results in “Human Readable Format”.</p>
+</blockquote>
+<p>Ex: <code>du /bplimext/projects/I001_jdoe/work_area/</code></p>
+<ul>
+<li><p><code>df -h</code>: Check disk space utilization and show the disk space &gt; statistics in “human readable” format.</p></li>
+<li><p><code>vi</code>: View ‘ASCII’ files; e.g., log files</p></li>
+<li><p><code>ghostscript</code>: Preview files with the extensions of <em>.eps</em> and <em>.pdf</em></p></li>
+</ul>
+<blockquote class="blockquote">
+<p><code>ghostscript /bplimext/projects/I001_jdoe/results/file_name.pdf</code></p>
+</blockquote>
+<ul>
+<li><p><code>okular</code>: View ‘PDF’</p></li>
+<li><p><code>find</code>: Find files</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Structure: find /path option filename</p>
+<p><code>find . -name "*.do"</code></p>
+<p>Send the ‘<code>find</code>’ output to a file:</p>
+<p><code>find . -name "\*.do" &gt; find_results.txt</code></p>
+<p>Look for a particular string within the ‘find’ output:</p>
+<p><code>find . -name "\*.do" | grep "analysis"</code></p>
+<p>Identify files with extension ‘.do’ that <strong>contain</strong> the word ‘graph’:</p>
+<p><code>find . -name "\*.do" -exec grep "graph export" '{}' \; -print</code></p>
+</blockquote>
+<ul>
+<li><p><code>passwd</code>: Change your password</p></li>
+<li><p><strong>To exit</strong> a program, type <strong>CTRL + C</strong> (‘CTRL + C’ kills a particular execution in the shell)</p></li>
+</ul>
+</section>
+<section id="using-the-vi-file-editor" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-vi-file-editor">Using the ‘vi’ file editor</h2>
+<ol type="1">
+<li><p>In the shell type ‘<code>vi batch1.txt</code>’</p></li>
+<li><p>These are the main shortcut keys</p>
+<ol type="a">
+<li><p>‘i’ insert text</p></li>
+<li><p>‘ESC’ key get out of the ‘insert’ mode</p></li>
+<li><p>‘x’ delete specific characters</p></li>
+<li><p>‘dd’ delete a full line</p></li>
+<li><p>‘10 dd’ delete 10 lines</p></li>
+<li><p>‘yy’ copy lines</p></li>
+<li><p>‘p’ paste lines</p></li>
+<li><p>‘SHIFT + G’ go to the last line</p></li>
+<li><p>‘gg’ goes to the first line</p></li>
+<li><p>‘ESC + q!’ exit ‘vi’ without writing</p></li>
+<li><p>‘w!’ write and replace the file</p></li>
+<li><p>‘ESC + q’ exit the ‘vi’ session</p></li>
+<li><p>Check, for example, <a href="https://www.cs.colostate.edu/helpdocs/vi.html">https://www.cs.colostate.edu/helpdocs/vi.html</a></p></li>
+</ol></li>
+<li><p>Much easier solution: call ‘<code>gedit</code>’ file editor</p></li>
+<li><p>Linux commands I have to add to the manual</p></li>
+<li><p>‘CTRL + R’: allows me to recover a previous command</p></li>
+<li><p><code>vi .bash_history</code></p></li>
+</ol>
+</section>
+<section id="password" class="level2">
+<h2 class="anchored" data-anchor-id="password">External server’s password requirements</h2>
+<table class="table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 32%">
+<col style="width: 32%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Rule</strong></td>
+<td><strong>Value</strong></td>
+<td><strong>Notes </strong></td>
+</tr>
+<tr class="even">
+<td>Maximum Password Lifetime</td>
+<td><strong><u>60 days</u></strong></td>
+<td><em>After 60 days the password will expire</em> and has to be changed in the next login. The password can be changed at any moment using: <strong>(1)</strong>, “All Applications | Settings | System Settings – Account Details”, click “Change Password”; or, <strong>(2)</strong>, in the ‘Shell’ type ‘passwd’</td>
+</tr>
+<tr class="odd">
+<td>Minimum Number of Character Classes</td>
+<td>4</td>
+<td><p>You should include at least 4 classes of characters in the password. For example, small letters, capital letters, numbers and punctuation marks.</p>
+<p>There are a total of five classes:</p>
+<blockquote class="blockquote">
+<p>1. Capital letters : A-Z</p>
+<p>2. Small letters: a-z</p>
+<p>3. Numbers: 1-9</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote class="blockquote">
+<p>4. Punctuation marks: &lt;space&gt; ! % &amp; ( ) * + . , { } [ ] ~ " # $ ' - / \ ^ _ ` |</p>
+<p>5. Characters above 127 (0x7F): marked characters (ã, á, ä, à, etc.); symbols (@, £, §, º, ª, «, », etc.)</p>
+</blockquote>
+<p>Number of characters: by using the same character 3 or more times may imply the use of an additional class (it is highly recommended that you do not use consecutively the same character more than 2 times)</p></td>
+</tr>
+<tr class="odd">
+<td>Minimum Length of Password</td>
+<td>8</td>
+<td>The minimum size of the password is 8 characters (it may be higher in case you repeat characters)</td>
+</tr>
+<tr class="even">
+<td>Password History</td>
+<td>7</td>
+<td>One cannot use a password defined in the previous set of 7 passwords</td>
+</tr>
+<tr class="odd">
+<td>Maximum Consecutive Failures</td>
+<td>6</td>
+<td>If the user fails 6 consecutive times the password the account will be locked for the time defined in “Lockout Time”</td>
+</tr>
+<tr class="even">
+<td>Fail Interval</td>
+<td>60 sec.</td>
+<td>Time interval for attempts to enter a password to be considered consecutive. If more than 60 seconds have elapsed since the last attempt, consecutive attempts are no longer considered, ie the number of failures, according to the requirement "Maximum Consecutive Failures" becomes one.</td>
+</tr>
+<tr class="odd">
+<td>Lockout Time</td>
+<td>600 sec.</td>
+<td>Time (10 minutes) during which the account will be locked if the maximum number of failed attempts is reached.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="install_nomachine" class="level2">
+<h2 class="anchored" data-anchor-id="install_nomachine">Download, install and configure NoMachine client</h2>
+<p><strong>Step 1</strong>: go to the link below and use the credentials provided by BPLIM to access the site. <strong>Note</strong>: sometimes the internet provider, <em>e.g.</em>, a University, may block access to this particular website. Please check with your provider in case you get an error while trying to use the link.</p>
+<p><a href="https://www.bportugal.pt/webdrive/index.php/s/irAzxZmir8KHyzD/authenticate">https://www.bportugal.pt/webdrive/index.php/s/irAzxZmir8KHyzD/authenticate</a></p>
+<p><img src="./media/image17.png" style="width:3.0528in;height:2.3622in"></p>
+<p><strong>Step 2</strong>: download the file with an extension compatible with your OS (Operation System)</p>
+<p><img src="./media/image18.png" style="width:3.6682in;height:2.3622in"></p>
+<p><strong>Step 3</strong>: install ‘NoMachine’</p>
+<p><img src="./media/image19.png" style="width:4.07941in;height:3.14961in"></p>
+<p><img src="./media/image20.png" style="width:4.06859in;height:3.14961in"></p>
+<p><img src="./media/image21.png" style="width:4.06374in;height:3.14961in"></p>
+<p><img src="./media/image22.png" style="width:4.09365in;height:3.14961in"></p>
+<p><img src="./media/image23.png" style="width:4.09365in;height:3.14961in"></p>
+<p><img src="./media/image24.png" style="width:4.09115in;height:3.14961in"></p>
+<p><strong><br>
+</strong></p>
+<p><strong>Step 4</strong>: reboot your computer</p>
+<p><img src="./media/image25.png" style="width:2.75591in;height:1.21602in"></p>
+<p><strong>Step 5</strong>: NoMachine client access configuration</p>
+<p><strong>Step 5.1</strong>: start ‘NoMachine’ and create a new connection</p>
+<blockquote class="blockquote">
+<p><img src="./media/image26.png" style="width:4.72441in;height:3.02971in"></p>
+</blockquote>
+<p><strong>Step 5.2</strong>: Choose ‘NX protocol’</p>
+<blockquote class="blockquote">
+<p><img src="./media/image27.png" style="width:4.72441in;height:3.0302in"></p>
+</blockquote>
+<p><strong>Step 5.3</strong>: Define the ‘Host’ as bplimexterno.bportugal.pt, ‘Port’ 4000</p>
+<blockquote class="blockquote">
+<p>Click ‘Use UDP communication for multimedia data’</p>
+<p><img src="./media/image28_new.png" style="width:4.72441in;height:3.02002in"></p>
+<p><strong>Step 5.4</strong>: Use password authentication, with or without proxy, depending on the instructions of the network administrator/user 's computer support, with the name “BPLIM-LabInvestMicrodados Banco de Portugal”.</p>
+<p><img src="./media/image29.png" style="width:4.72441in;height:3.02438in"></p>
+<p><strong>Step 5.5</strong>: Do not use a ‘proxy’</p>
+<p><img src="./media/image30.png" style="width:4.72441in;height:3.03165in"></p>
+<p><strong>Step 5.6</strong>: Define a name for the connection</p>
+<p><img src="./media/image31.png" style="width:4.72441in;height:3.03165in"></p>
+<p><strong>Step 5.7</strong>: Once the entry for bplimexterno.bportugal.pt has been created, connect:</p>
+<p><img src="./media/image32.png" style="width:4.72441in;height:3.03698in"></p>
+</blockquote>
+<p><strong><br>
+</strong></p>
+<blockquote class="blockquote">
+<p><strong>Step 5.8</strong>: Before the first effective connection, it may be necessary to accept the certificate from bplimexterno.bportugal.pt</p>
+<p>The Investigator should verify that the "fingerprint" (verification code) is:</p>
+<p><strong>SHA256 ED 1B D9 E2 C2 F8 C6 08 1A 53 5F 97 DA 71 77 D9 D2 EE 7A 5F 9C 35 87 B3 19 F4 7E A1 CB 2C 68 0B</strong></p>
+<p><img src="./media/image33.png" style="width:4.72441in;height:2.98511in"></p>
+</blockquote>
+<p><strong><br>
+</strong></p>
+<blockquote class="blockquote">
+<p><strong>Step 5.9</strong>: Connect with the UserID (<strong>case sensitive</strong>) and password provided by Banco de Portugal:</p>
+<p><img src="./media/image34.png" style="width:4.72441in;height:3.03504in"></p>
+<p><strong>Step 5.10</strong>: After the first successful login, it is necessary to change the password, which must comply with the Password Policy defined above.</p>
+<p>If the new password does not comply with the Password Policy, the original password provided by the Banco de Portugal will be re-requested. See Appendix 3 for details.</p>
+<p>The NoMachine client does not tell you why the new password was not accepted – it is the responsibility of the user to verify that the new password is in compliance.</p>
+<p><img src="./media/image35.png" style="width:4.72441in;height:3.02972in"></p>
+<p><strong>Step 5.11</strong>: Upon login success, the following screens should appear</p>
+<p><img src="./media/image36.png" style="width:4.72441in;height:3.02971in"></p>
+<p><img src="./media/image37.png" style="width:4.72441in;height:3.02389in"></p>
+<p>Once logged in and with access to a KDE session, click on the upper right corner of the KDE desktop, as shown below, to access the menu and then expand the screen as exemplified for greater ease of use.</p>
+<p><strong>Step 5.12</strong>: You should see the following screen.</p>
+<p><img src="./media/image38.png" style="width:4.72441in;height:3.01274in"></p>
+<p><strong>Step 5.13</strong>: Click ‘Display’</p>
+<p><img src="./media/image39.png" style="width:4.72441in;height:3.0268in"></p>
+<p><strong>Step 5.14</strong>: Click ‘Fit to window’ and click ‘Done’</p>
+<p><img src="./media/image40.png" style="width:4.72441in;height:3.02195in"></p>
+</blockquote>
+<!---
+
+## Browser access{#browser_access}
+
+> Use a browser (recommended Chrome, Firefox, Opera or Safari) and go to
+>
+> [https://bplimexterno.bportugal.pt:4443](https://bplimexterno.bportugal.pt:4443)
+
+Below are the sequential screens you should see. In steps 4 to 7, you can define your settings.
+
+> ![](./media/NoMachineWeb1.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb2.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb3.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb4.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb5.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb6.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+> ![](./media/NoMachineWeb7.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+
+
+Configuring browser access
+
+> To a large extent the configuration of the access via browser is
+> similar to the configuration through the client NoMachine. However,
+> the features and performance are lower than the "NoMachine client
+> access".
+>
+> In case you are using a Portuguese Keyboard, note that the keyboard
+> has to be set to Portuguese, as shown below, and even then some
+> characters may have to be specified on the virtual keyboard (depending
+> on the browser used). Please confirm the configuration of the characters
+> on your keyboard.
+>
+> ![](./media/image41.png){width="4.724409448818897in"
+> height="3.26626968503937in"}
+>
+> ![](./media/image42.png){width="4.724409448818897in"
+> height="3.8038615485564304in"}
+>
+> ![](./media/image43.png){width="4.724409448818897in"
+> height="3.779623797025372in"}
+>
+> ![](./media/image44.png){width="4.724409448818897in"
+> height="3.8038615485564304in"}
+
+-->
+</section>
+<section id="frequently-asked-questions" class="level2">
+<h2 class="anchored" data-anchor-id="frequently-asked-questions">Frequently Asked Questions</h2>
+<!---
+1.  After the login in "https://webfa.bportugal.pt" I am not able to
+    download NoMachine's setup file
+
+ It may occur that a firewall is preventing the download. We have
+ verified such problems in some Universities and Governmental services.
+ Please try the download outside the firewall.
+-->
+<ol type="1">
+<li>Mac users are not able to install NoMachine, receiving the following message</li>
+</ol>
+<blockquote class="blockquote">
+<p><img src="./media/image45.png" style="width:2.16535in;height:1.49697in"></p>
+</blockquote>
+<p>Please check if your Mac OSX is updated. Temporary solution: download NoMachine Enterprise Client from the official website, and run the installation file:</p>
+<p>https://www.nomachine.com/download-enterprise#NoMachine-Enterprise-Client</p>
+<ol start="2" type="1">
+<li>NoMachine authentication failure</li>
+</ol>
+<blockquote class="blockquote">
+<p><img src="./media/image46.png" style="width:2.16535in;height:1.40773in"></p>
+</blockquote>
+<!---
+  - We have observed that some users who change their password within
+    "https://webfa.bportugal.pt" later are not able to login within
+    NoMachine (error message shown in the image above).
+    -->
+<ul>
+<li><p>In some cases, it occurs due to a different keyboard layout. For example, if you have a Portuguese keyboard, but the website assumes a US keyboard, and your password contains a symbol like ‘ç’ then you will get a “wrong password” message. Please check the keyboard layout that is active when you type the password. Alternatively, change the password after the first login with NoMachine. Use linux’s command ‘passwd’.</p></li>
+<li><p>Login fails, and the system shows the message: "Could not connect to the server. Error is 138: Connection is timed out" Please check if your network has a strict firewall; e.g., some researchers are not able to reach BPLIM’s server within their University network. Please check if in a different location, like at home, the connection works.</p></li>
+</ul>
+<ol start="3" type="1">
+<li>User pressed ‘Lock’ instead of ‘Log out’ and the unlock/password does not work:</li>
+</ol>
+<ul>
+<li><p>Check if the keyboard settings are correct (e.g., PT or UK)</p></li>
+<li><p>Close the ‘NoMachine’ connection and start a new one. Before the last step -before the 'Login’- right-click and choose ‘Logout’. Double-click for the new connection</p></li>
+</ul>
+<ol start="4" type="1">
+<li>“Cannot see the screen in NoMachine” (see image below)</li>
+</ol>
+<blockquote class="blockquote">
+<p><img src="./media/image47.png" style="width:4.01667in;height:2.49995in"></p>
+</blockquote>
+<ol start="5" type="1">
+<li><u>OPTION A</u>: move your mouse on top the upper right corner of NoMachine, you should see a “folded like sheet”, left-click your mouse, go to ‘Display’, ‘Change settings’, and click in ‘Disable client side hardware decoding’</li>
+</ol>
+<p><img src="./media/image48.png" style="width:1.56522in;height:0.15in"></p>
+<ol start="6" type="1">
+<li><p><u>OPTION B</u>: Close the ‘NoMachine’ connection and start a new one. Before the last step -before the 'Login’- right click and choose ‘Logout’. Double-click for the new connection</p></li>
+<li><p>“Error: Parameter ‘agentm_display’ has bad value” (see image below)</p></li>
+</ol>
+<blockquote class="blockquote">
+<p><img src="./media/parameter_bad_value.png" style="width:4.01667in;height:2.49995in"></p>
+</blockquote>
+<ul>
+<li><p>Your home folder is full (/home/USER_LOGIN): <strong><em>Do not save files in your home folder</em></strong></p></li>
+<li><p>Ask BPLIM Staff to empty space in your home folder</p></li>
+</ul>
+<ol start="8" type="1">
+<li>Session is frozen</li>
+</ol>
+<ul>
+<li>Go to NoMachine first screen and double-click in the following icon</li>
+</ul>
+<p><img src="./media/logout1.png" class="img-fluid" style="width:3in"></p>
+<ul>
+<li>right-click on the icon below and choose “Terminar sessão”</li>
+</ul>
+<p><img src="./media/logout2.png" class="img-fluid" style="width:3in"></p>
+<ol start="9" type="1">
+<li>Visualizing tables</li>
+</ol>
+<ul>
+<li>In case you want to see the pdf of tables you have exported to you can create a generic tex file, <code>main.tex</code>, with the following content:</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>\documentclass{article}</code></p>
+<p><code>\begin{document}</code></p>
+<p><code>\input{your_table.tex}</code></p>
+<p><code>\end{document}</code></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>where your table is ‘your_table.tex’. The tex file can be compiled in the Terminal by typing <code>pdflatex main.tex</code>.</p>
+</blockquote>
+</section>
+<section id="version-control" class="level2">
+<h2 class="anchored" data-anchor-id="version-control">Version control</h2>
+<p>The server runs <a href="https://about.gitlab.com/">GitLab</a>. If you need to use Git for your projects, please send your request to BPLIM (bplim@bportugal.pt).</p>
+<p>In case you want to use Git you should request it from BPLIM (bplim@bportugal.pt).</p>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Git">Wikipedia</a>:</p>
+<p>``Git is a distributed version-control system for tracking changes in any set of files, originally designed for coordinating work among programmers cooperating on source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows’’</p>
+</blockquote>
+<p>First steps</p>
+<ol type="1">
+<li>First, authenticate using an <code>ssh-key</code>. Open a <strong>Terminal</strong> in your home folder</li>
+</ol>
+<pre><code>  cd ~</code></pre>
+<p>and type:</p>
+<pre><code>  ssh-keygen -t rsa -C "BPLIM git"
+  cat ~/.ssh/id_rsa.pub</code></pre>
+<ol start="2" type="1">
+<li><p>Second, after generating your SSH key, you’ll need to select the text of the key in your terminal. You can usually do this by clicking and dragging your mouse over the key text. Once the key is highlighted, right-click on the selection and choose ‘Copy’ to copy the resulting key to your clipboard.</p></li>
+<li><p>Third, open <strong>Firefox</strong> (go to the RedHat icon and type Firefox in the search box) and navigate to <a href="https://vxpp-bplimgit.bplim.local/">https://vxpp-bplimgit.bplim.local/</a></p></li>
+</ol>
+<p><img src="./media/GitLab.png" class="img-fluid" style="width:3in"></p>
+<p>Once you’ve navigated to the website, use your credentials for the external server to log in.</p>
+<ol start="4" type="1">
+<li><p>Once logged in, navigate to your profile. In the upper-right corner of the webpage, you will find the <strong>Settings</strong> option.</p>
+<p><img src="./media/GitLab2.png" class="img-fluid" style="width:1in"></p></li>
+</ol>
+<p>Now, on the left-side bar, click in <strong>SSH Keys</strong></p>
+<p><img src="./media/GitLab3.png" class="img-fluid" style="width:1in"></p>
+<p>and paste the contents of the clipboard in the text box on the top right corner under <strong>Key</strong>.</p>
+<p><img src="./media/GitLab4.png" class="img-fluid" style="width:3in"></p>
+<p>Give a title, e.g., “BPLIM git”, and click in <strong>Add key</strong>.</p>
+<ol start="5" type="1">
+<li><p>Go to <strong>Projects</strong></p>
+<p><img src="./media/GitLab5.png" class="img-fluid" style="width:2in"></p></li>
+</ol>
+<p>and create a <strong>New project</strong>, e.g., <code>scripts_P999</code>, where P999 is your_project_ID_number</p>
+<p><img src="./media/GitLab6.png" class="img-fluid" style="width:1in"></p>
+<p>To use git, it is necessary to modify or create the .gitconfig file in your user’s home directory. You can use <strong>KWrite</strong> (click in the RedHat icon and search for KWrite) to edit/create the file. The file should have the following format. In this file, you can adapt the name and replace ‘investa’ with your own user.</p>
+<pre><code>  [cola]
+          spellcheck = false  
+  [user]
+          name = Investigador A
+          email = investa@sxpe-bplim01.bplim.local
+  [gui]
+          editor = kwrite</code></pre>
+<ol start="6" type="1">
+<li>You can clone the project by opening a <strong>Terminal</strong> and moving to your work_area:</li>
+</ol>
+<pre><code>  cd /bplimext/projects/your_project_ID/work_area/</code></pre>
+<p>and typing</p>
+<pre><code>  git clone git@vxpp-bplimgit.bplim.local:investa/scripts_P999.git</code></pre>
+<ol start="7" type="1">
+<li>Add the file <code>.gitignore</code> available in folder <code>tools</code> of your project:</li>
+</ol>
+<pre><code>  cd scripts_P999
+  cp /bplimext/projects/your_project_ID/tools/.gitignore .</code></pre>
+<ol start="8" type="1">
+<li>Do your first commit &amp; push</li>
+</ol>
+<pre><code>  git add *
+
+  git commit -a -m "First"
+
+  git push</code></pre>
+<ol start="10" type="1">
+<li><strong>To use the version control system effectively, please place all your scripts and code files in the folder named ‘scripts_P999’. This organization is important for maintaining a structured and efficient workflow with the version control system.</strong></li>
+</ol>
+<!--- 1. move to a specific folder; _e.g._, `cd /bplimext/projects/your_project_ID/work_area/`
+2. create a .gitignore file (check [toptal](https://www.toptal.com/developers/gitignore) for some examples)
+3. `git init`
+4. `git add *.do`
+5. `git commit -a -m "First"`
+6. `git show first_do_file.do`
+-->
+</section>
+<section id="containers" class="level2">
+<h2 class="anchored" data-anchor-id="containers">Containers</h2>
+
+<!---
+## Singularity containers
+
+### Using a prebuilt image available at BPLIM's server
+
+You can use Singularity to run the Anaconda environment inside the server. The image for Singularity is placed in:
+
+  > `/opt/bplimext/singularity-images`
+
+Explore the following example. Type these sequence of commands:
+
+`cd /bplimext/projects/your_project_ID/work_area`
+
+`mkdir containers`
+
+`cd containers`
+
+`singularity build --sandbox Anaconda /opt/bplimext/singularity-images/bplimAnaconda.sif`
+
+`singularity shell --writable Anaconda`
+
+Now you are inside the container and can run commands such as:
+
+  > `anaconda-navigator`
+  >
+  > `jupyter lab`
+  >
+  > `spyder`
+
+-->
+<section id="build-your-container" class="level3">
+<h3 class="anchored" data-anchor-id="build-your-container">Build your container</h3>
+<ul>
+<li><p>You can write a script to build your container using the template definition files available at our <a href="https://github.com/BPLIM/Containers">GitHub repository</a></p></li>
+<li><p>Test your script and build the container using <a href="https://cloud.sylabs.io/">SylabsCloud</a> (you can use your GitHub account to login)</p></li>
+<li><p>Click in ‘CREATE’</p></li>
+</ul>
+<p><img src="media/SylabsCreate.png" class="img-fluid" style="width:1.2in"></p>
+<ul>
+<li>In the following step upload your ‘.def’ file or copy/paste its contents in the Text box:</li>
+</ul>
+<p><img src="media/SylabsBuildContainer.png" class="img-fluid" style="width:1.7in"></p>
+<ul>
+<li><p>Sylabs runs a first test on the validity of your script and releases the button ‘Build’ (click on it)</p></li>
+<li><p>Follow the outcome at the bottom of the screen and check for possible error messages</p></li>
+<li><p>Once you succeed in building the container, you can send us the definition file with your changes</p></li>
+</ul>
+</section>
+<section id="use-the-container-in-bplims-server" class="level3">
+<h3 class="anchored" data-anchor-id="use-the-container-in-bplims-server">Use the container in BPLIM’s server</h3>
+<ul>
+<li><p>Open a <code>Terminal</code></p></li>
+<li><p>Move to your project’s folder</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><code>cd /bplimext/projects/YOURPROJECTID/tools/containers</code></p>
+</blockquote>
+<ul>
+<li>Start the container by typing</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>singularity shell YOURPROJECTID.sif</code></p>
+</blockquote>
+<ul>
+<li><p>The prompt of the <code>Terminal</code> will show: <code>Singularity</code></p></li>
+<li><p>Start RStudio by typping <code>rstudio</code> (small caps)</p></li>
+</ul>
+<p><img src="media/Singularity_Terminal_Prompt.png" class="img-fluid" style="width:1.7in"></p>
+<ul>
+<li>Once inside RStudio you have access to the original folder structure of your project</li>
+</ul>
+</section>
+</section>
+<section id="jupyter-lab" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-lab">Jupyter Lab</h2>
+<p>Explore <a href="https://jupyter.org/">Jupyter lab</a>:</p>
+<blockquote class="blockquote">
+<p>“JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.”</p>
+</blockquote>
+<p>Start Jupyter Lab by typing:</p>
+<blockquote class="blockquote">
+<p><code>jupyter lab --browser=firefox</code></p>
+</blockquote>
+<p>Sample session:</p>
+<p><img src="./media/JupyterLab.png" class="img-fluid" style="width:65.0%"></p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Dolphin is an intuitive and easy-to-use file manager. You can use it, for example, to browse the directory, to create or delete files/directories (by using the right mouse button). For more information about Dolphin, please visit: <a href="https://userbase.kde.org/Dolphin">https://userbase.kde.org/Dolphin</a> .<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In case ‘xstata17mp.sh’ does not launch Stata please see ‘<a href="#statistical_software">Section 3</a>’.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Click on the cross button at the upper right corner to close.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Note that before exiting the server, you need to make sure that all active programs have been closed (unless they have been launched in <em>batch</em> mode). Running programs in <em>batch</em> mode is justified for procedures that require high computational resources, intense calculation and/or long processing time.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The ’<em>shell’</em> supports the commands in Linux operating system (some are disabled).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>The version of Stata on the server has the same features as the Stata on Windows or Mac. By default when the Stata starts in this way the "working directory" active becomes your folder "work_area".<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>You may only remove text files that do not contain data or results that allow identification. For all the graphs you request as an output you must provide the corresponding Table to replicate it. You may only export graphs in .PNG format (no vector graph is allowed).<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">BPLIM@bportugal.pt</div>   
+    <div class="nav-footer-right">This page was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
