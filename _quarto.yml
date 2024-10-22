@@ -29,6 +29,8 @@ website:
         href: guides.qmd
       - text: "Data Manuals"
         href: manuals.qmd
+      - text: "Guide for researchers"
+        href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
       - text: "Tools"
         href: https://github.com/BPLIM/Tools/
       - text: "Workshops"
