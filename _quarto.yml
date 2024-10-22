@@ -59,7 +59,6 @@ website:
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
           - text: "Other Guides"
             href: guides.qmd
-        href: guides.qmd
       - text: "Guide for researchers"
         href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
       - text: "Data Manuals"
