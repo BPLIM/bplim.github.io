@@ -27,7 +27,6 @@ book:
   
   chapters:
     - index.qmd
-    - ../Manuals/Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
 
 format:
   html:
