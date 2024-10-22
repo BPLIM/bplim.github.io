@@ -5,7 +5,7 @@ project:
 website:
   title: "BPLIM"
   favicon: images/data.jpg
-  #downloads: [pdf, epub]
+  #downloads: [pdf, epub] # Enables PDF and EPUB downloads
   search: 
     location: navbar
     type: overlay
@@ -26,11 +26,13 @@ website:
       - text: "Instructional Videos"
         href: https://bplim.github.io/Manuals/
       - text: "Guides"
-        href: guides.qmd
+        menu:
+          - text: "Guide for researchers"
+            href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
+          - text: "Other Guides"
+            href: guides.qmd
       - text: "Data Manuals"
         href: manuals.qmd
-      - text: "Guide for researchers"
-        href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
       - text: "Tools"
         href: https://github.com/BPLIM/Tools/
       - text: "Workshops"
@@ -52,7 +54,14 @@ website:
       - text: "Instructional Videos"
         href: https://bplim.github.io/Manuals/
       - text: "Guides"
+        menu:
+          - text: "Guide for researchers"
+            href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
+          - text: "Other Guides"
+            href: guides.qmd
         href: guides.qmd
+      - text: "Guide for researchers"
+        href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
       - text: "Data Manuals"
         href: manuals.qmd
       - text: "Tools"
@@ -73,4 +82,12 @@ format:
     css: styles.css
     toc: true
     
- 
+
+  pdf:
+    #output-file: docs/BPLIM.pdf
+    toc: true
+    number-sections: true
+
+  #epub:
+    #output-file: docs/BPLIM.epub
+    #toc: true
