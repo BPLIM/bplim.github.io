@@ -1,36 +1,12 @@
 ---
-title: "Banco de Portugal's Microdata Research Laboratory (BPLIM)"
+title: "Banco de Portugal Microdata Research Laboratory"
 format: 
   html:
+    theme: Flatly
     css: styles.css
+    toc: false
 ---
 
-# Website
 
-Visit the official website [https://bplim.bportugal.pt/](https://bplim.bportugal.pt/)
+# Welcome to BPLIM
 
-:::{.grid}
-::: {.g-col-6}
-
-### Guides
-
-- [Instructional Videos](https://bplim.github.io/Manuals/)
-
-- [Guide for Researchers](https://bplim.github.io/Manuals/Guides/01_Guide_for_Researchers)
-- [Datasets Guide](https://bplim.github.io/Manuals/Guides/02_BPLIM_Datasets_Guide)
-- [Output Control](https://bplim.github.io/Manuals/Guides/06_Output_Control)
-- [Working with Pseudo-Data](https://bplim.github.io/Manuals/Guides/07_Working_with_Pseudo-Data)
-
-:::
-::: {.g-col-6}
-
-### Repositories
-
-- [Manuals](https://github.com/BPLIM/Manuals)
-- [Tools](https://github.com/BPLIM/Tools)
-- [Replication App](https://github.com/BPLIM/ReplicationApp)
-- [Workshops](https://github.com/BPLIM/Workshops)
-- [Containers](https://github.com/BPLIM/Containers)
-
-:::
-:::

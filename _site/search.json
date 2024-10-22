@@ -1,0 +1,34 @@
+[
+  {
+    "objectID": "manuals.html",
+    "href": "manuals.html",
+    "title": "Data Manuals",
+    "section": "",
+    "text": "Data Manuals\n\nBBS\nCB\nCBHP\nCRC\nGE\nHCRC\nIBACH\nIREE\nSI\nSLB",
+    "crumbs": [
+      "Home",
+      "Data Manuals"
+    ]
+  },
+  {
+    "objectID": "guides.html",
+    "href": "guides.html",
+    "title": "Guides",
+    "section": "",
+    "text": "Guides\n\nGuide for Researchers\nDatasets Guide\nExternal Server\nHow to use Git\nHow to use Containers\nOutput Control\nWorking with Pseudo-Data\nContainers\nReplication App\n\n\n\nWebsite\n\n\n\nInstructional Videos\n\n\n\nGuides\n\n\n\nData Manuals\n\n\n\nTools\n\n\n\nWorkshops",
+    "crumbs": [
+      "Home",
+      "Guides"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Banco de Portugal Microdata Research Laboratory",
+    "section": "",
+    "text": "Welcome to BPLIM",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
