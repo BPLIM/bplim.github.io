@@ -5,4 +5,5 @@ title: "Banco de Portugal Microdata Research Laboratory GitHub repository"
 
 # Welcome to BPLIM
 
-This is BPLIM's GitHub repository. Here, you will find our instructional videos, guides, data manuals, and tools. It is organized to help you navigate and search through our public resources using the search tool at the top right corner of this page. PDF versions of the guides and data manuals, as well as auxiliary files, are available in each repository. Feel free to clone the tools folder, where we provide all packages created and maintained by the BPLIM team. Some of the Stata ado files can be readily installed using `net install`.
+This is BPLIM's GitHub repository. Here, you will find our Instructional Videos, Guides, Data Manuals, and Tools. It is organized to help you navigate and search through our public resources using the search tool at the top right corner of this page. PDF versions of the Guides and Data Manuals, as well as auxiliary files, are available in each section. You can also explore and clone our tools folder, which contains all the packages developed and maintained by the BPLIM team. For Stata users, some ado files are ready to install using `net install`.
+

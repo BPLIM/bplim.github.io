@@ -1,6 +1,7 @@
 project:
   type: website
-  output-dir: docs
+  #output-dir: docs
+  
 
 website:
   title: "BPLIM"
@@ -14,6 +15,7 @@ website:
     #title: true
     search: true
     #logo: images/BdP_Logo_5.png
+    #downloads: [pdf, epub] 
     background: primary
     tools:
       - icon: youtube
@@ -26,6 +28,7 @@ website:
       - text: "Instructional Videos"
         href: https://bplim.github.io/Manuals/
       - text: "Guides"
+        href: guides.qmd
         menu:
           - text: "Guide for researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
@@ -42,7 +45,7 @@ website:
           - text: "Work with Pseudo-Data"
             href: Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.qmd
       - text: "Data Manuals"
-        href: manuals.qmd
+        href: data_manuals.qmd
       - text: "Tools"
         href: https://github.com/BPLIM/Tools/
       - text: "Workshops"
@@ -52,9 +55,10 @@ website:
   sidebar:
     style: "docked"
     #search: true
+    #downloads: [pdf, epub] 
     border: true
     collapse-level: 3
-    pinned: false
+    pinned: true
     background: "#e2ecf1"
     contents:
       - text: "Home"
@@ -64,6 +68,7 @@ website:
       - text: "Instructional Videos"
         href: https://bplim.github.io/Manuals/
       - section: "Guides"
+        href: guides.qmd
         contents:
           - text: "Guide for researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
@@ -80,7 +85,7 @@ website:
           - text: "Work with Pseudo-Data"
             href: Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.qmd
       - text: "Data Manuals"
-        href: manuals.qmd
+        href: data_manuals.qmd
       - text: "Tools"
         href: https://github.com/BPLIM/Tools/
       - text: "Workshops"
@@ -100,10 +105,10 @@ format:
     toc: true
     
 
-#  pdf:
+  #pdf:
     #output-file: docs/BPLIM.pdf
-#    toc: true
-#    number-sections: true
+    #toc: true
+    #number-sections: true
 
   #epub:
     #output-file: docs/BPLIM.epub

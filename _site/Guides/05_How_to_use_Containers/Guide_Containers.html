@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Using Containers – BPLIM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/data.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">BPLIM</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bplim.bportugal.pt/"> 
+<span class="menu-text">Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bplim.github.io/Manuals/"> 
+<span class="menu-text">Instructional Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../guides.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data_manuals.html"> 
+<span class="menu-text">Data Manuals</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/BPLIM/Tools/"> 
+<span class="menu-text">Tools</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/BPLIM/Workshops/"> 
+<span class="menu-text">Workshops</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://www.youtube.com/@BancodePortugalOficial/featured" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../guides.html">Guides</a></li><li class="breadcrumb-item"><a href="../../Guides/05_How_to_use_Containers/Guide_Containers.html">How to use containers</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://bplim.bportugal.pt/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Website</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://bplim.github.io/Manuals/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructional Videos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../guides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guides</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guide for researchers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v102024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datasets guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/03_External_Server/External_Server_Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">External server</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/04_How_to_use_Git/Guide_Git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/05_How_to_use_Containers/Guide_Containers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">How to use containers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/06_Output_Control/Output_Control_Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Work with Pseudo-Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../data_manuals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Manuals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/BPLIM/Tools/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/BPLIM/Workshops/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshops</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#general-information" id="toc-general-information" class="nav-link active" data-scroll-target="#general-information">General Information</a></li>
+  <li><a href="#access-to-the-container" id="toc-access-to-the-container" class="nav-link" data-scroll-target="#access-to-the-container">Access to the container</a>
+  <ul class="collapse">
+  <li><a href="#alternative-a-use-a-pre-defined-setup" id="toc-alternative-a-use-a-pre-defined-setup" class="nav-link" data-scroll-target="#alternative-a-use-a-pre-defined-setup">Alternative A: use a pre-defined setup</a></li>
+  <li><a href="#alternative-b-use-the-command-line" id="toc-alternative-b-use-the-command-line" class="nav-link" data-scroll-target="#alternative-b-use-the-command-line">Alternative B: use the command line</a></li>
+  </ul></li>
+  <li><a href="#build-and-replicate-the-container-of-your-project" id="toc-build-and-replicate-the-container-of-your-project" class="nav-link" data-scroll-target="#build-and-replicate-the-container-of-your-project">Build and replicate the container of your project</a>
+  <ul class="collapse">
+  <li><a href="#starting-point-the-container" id="toc-starting-point-the-container" class="nav-link" data-scroll-target="#starting-point-the-container">Starting point: the container</a></li>
+  <li><a href="#the-definition-file-step-by-step" id="toc-the-definition-file-step-by-step" class="nav-link" data-scroll-target="#the-definition-file-step-by-step">The definition file step by step</a>
+  <ul class="collapse">
+  <li><a href="#header" id="toc-header" class="nav-link" data-scroll-target="#header"><strong><code>header</code></strong></a></li>
+  <li><a href="#runscript" id="toc-runscript" class="nav-link" data-scroll-target="#runscript"><strong><code>runscript</code></strong></a></li>
+  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files"><strong><code>files</code></strong></a></li>
+  <li><a href="#environment" id="toc-environment" class="nav-link" data-scroll-target="#environment"><strong><code>environment</code></strong></a></li>
+  <li><a href="#post" id="toc-post" class="nav-link" data-scroll-target="#post"><strong><code>post</code></strong></a></li>
+  <li><a href="#including-additional-packages" id="toc-including-additional-packages" class="nav-link" data-scroll-target="#including-additional-packages">Including additional packages</a></li>
+  <li><a href="#cleaning-temporary-files" id="toc-cleaning-temporary-files" class="nav-link" data-scroll-target="#cleaning-temporary-files">Cleaning temporary files</a></li>
+  </ul></li>
+  <li><a href="#building-the-container" id="toc-building-the-container" class="nav-link" data-scroll-target="#building-the-container">Building the container</a></li>
+  </ul></li>
+  <li><a href="#building-the-container-online" id="toc-building-the-container-online" class="nav-link" data-scroll-target="#building-the-container-online">Building the container online</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#an-example-of-a-singularity-definition-file" id="toc-an-example-of-a-singularity-definition-file" class="nav-link" data-scroll-target="#an-example-of-a-singularity-definition-file">An example of a Singularity definition file</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../guides.html">Guides</a></li><li class="breadcrumb-item"><a href="../../Guides/05_How_to_use_Containers/Guide_Containers.html">How to use containers</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Using Containers</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="page-break-after: always;"></div>
+<section id="general-information" class="level1">
+<h1>General Information</h1>
+<p>This guide provides instructions on how to use containers in BPLIM’s infrastructure. Follow these steps to request a container for your project:</p>
+<ol type="1">
+<li><p>Determine your requirements: Before requesting a container, identify your specific needs for statistical tools, packages, and any other necessary software.</p></li>
+<li><p>Contact BPLIM’s team: After identifying your container requirements, reach out to BPLIM’s team by sending an email to <code>bplim@bportugal.pt</code> with the details from Step 1.</p></li>
+<li><p>Await a response: After submitting your request, you will receive a response from BPLIM’s team. The team will review your requirements and provide you with a container that meets your specifications.</p></li>
+<li><p>Configure the container: Once the container is ready, BPLIM’s team will configure it for you and provide you with the necessary details to access and utilize the container.</p></li>
+<li><p>Review the container: Upon receiving the container, carefully review it to ensure that it meets your requirements. Contact BPLIM if you have any questions or concerns that need clarification.</p></li>
+</ol>
+</section>
+<section id="access-to-the-container" class="level1">
+<h1>Access to the container</h1>
+<section id="alternative-a-use-a-pre-defined-setup" class="level2">
+<h2 class="anchored" data-anchor-id="alternative-a-use-a-pre-defined-setup">Alternative A: use a pre-defined setup</h2>
+<p>Once you have logged in to the server, you will see an icon that opens the container for your project. To launch the container and start the predefined application that you specified in your request, simply double-click on the icon. Once you have completed this step, it will function similarly to any other application.</p>
+</section>
+<section id="alternative-b-use-the-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="alternative-b-use-the-command-line">Alternative B: use the command line</h2>
+<p>This solution makes use of the <code>Terminal</code>, giving you more freedom to interact with the container. Follow the steps below:</p>
+<ol type="1">
+<li><p>Open a Terminal in your project’s work_area <br></p>
+<p>(e.g., <code>/bplimext/projects/PROJECT_ID/work_area</code>).</p></li>
+<li><p>The container is located in your project’s tools folder <br></p>
+<p>(<code>/bplimext/projects/PROJECT_ID/tools/_container</code>).</p></li>
+<li><p>Run the container using the following command:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> shell ../tools/iPROJECT_ID.BPLIM_Python_R_Jupyter.sif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Inside the container, the prompt will change to <code>Singularity &gt;</code></li>
+</ol>
+<blockquote class="blockquote">
+<p><img src="images/prompt_singularity.PNG" class="img-fluid"></p>
+</blockquote>
+<ol start="5" type="1">
+<li>For example, to open a Jupyter Notebook, type:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to use Stata or RStudio, type <code>xstata-mp</code> or <code>rstudio</code>, respectively.</p>
+<ol start="6" type="1">
+<li>When you’re finished using the container, type exit to leave the Singularity image.</li>
+</ol>
+</section>
+</section>
+<section id="build-and-replicate-the-container-of-your-project" class="level1">
+<h1>Build and replicate the container of your project</h1>
+<p>In this section, we will discuss how to replicate your project’s container locally. To do this, you’ll need a running instance of Singularity and the script used to build the container for your project (which can be requested from BPLIM). If you have these, just open a <code>Terminal</code> on your computer and type:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> build <span class="at">--fake-root</span> iPROJECT_ID.BPLIM_Python_R_Jupyter.sif </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">PROJECT_ID.BPLIM_Python_R_Jupyter.def</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You also have the option to write your own script for your project’s container, which we can then build and make available in your <code>tools</code> folder.</p>
+<p>The steps to build a Singularity container discussed below are designed for Linux, but with minor adjustments, they can also be applied in other environments.</p>
+<p>Note that although it is possible to build Singularity containers on Windows, it requires a Linux virtual machine or a Windows Subsystem for Linux (WSL) environment. Once you have set up a Linux environment, you can use the Singularity command-line tools to build your container.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>In addition to this guide, please refer to BPLIM’s Guide for Researchers (<span class="citation" data-cites="BPLIMguide">@BPLIMguide</span>) for more information.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<section id="starting-point-the-container" class="level2">
+<h2 class="anchored" data-anchor-id="starting-point-the-container">Starting point: the container</h2>
+<p>A Singularity container is a way to package and distribute software and its dependencies in a portable and isolated environment. To build a Singularity container, you’ll need to have Singularity installed on your system.</p>
+<p>Here are the basic steps to build a container:</p>
+<ol type="1">
+<li><p>Create a recipe/definition file: This is a text file that contains the instructions for building the container. The recipe file should specify the base image to use, any additional software to install, and any environment variables to set.</p></li>
+<li><p>Build the container: Use the singularity <code>build</code> command to build the container from the recipe file. For example:</p></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> build mycontainer.sif recipe.def</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Test the container: Use the singularity shell command to enter the container and test that it runs correctly. For example:</li>
+</ol>
+<p><code>singularity shell mycontainer.sif</code></p>
+<ol start="4" type="1">
+<li>(optional) Publish your container to a public or private registry, like Singularity Hub or Singularity Container Library.</li>
+</ol>
+<p>In the <a href="#appendix">Appendix</a> of this manual, you will find an example of a definition file for building a container with Stata. For detailed instructions and troubleshooting, you can refer to the official documentation at https://sylabs.io/guides/3.6/user-guide/index.html. Additionally, here is a simple recipe file that creates a container based on the Ubuntu 20.04 base image and installs the nano text editor:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>        <span class="ex">Bootstrap:</span> library</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">From:</span> ubuntu:20.04</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%post</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="ex">apt-get</span> update</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="ex">apt-get</span> install <span class="at">-y</span> nano</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-definition-file-step-by-step" class="level2">
+<h2 class="anchored" data-anchor-id="the-definition-file-step-by-step">The definition file step by step</h2>
+<p>In a Singularity definition file, you can write a variety of commands and instructions. Some common things you might include in the file are:</p>
+<ol type="1">
+<li><p><strong>Package installation</strong>: You can use package managers like <code>apt</code> or <code>yum</code> to install software and dependencies that your container needs to run. For example, you might install a specific version of Python or a library that your application depends on.</p></li>
+<li><p><strong>Environment setup</strong>: You can use commands like <code>ENV</code> or export to set environment variables that your container needs to run. For example, you might set the <code>PATH</code> variable to include the location of a specific binary or library.</p></li>
+<li><p><strong>File copy</strong>: You can use commands like <code>COPY</code> or <code>ADD</code> to copy files from the host system into the container. For example, you might copy a script or a configuration file that your application needs to run.</p></li>
+<li><p><strong>Runscript</strong>: As previously stated, the <code>Runscript</code> is a script that is executed when the container is run. It typically contains commands to set up the environment and launch the application or process that the container is designed to run.</p></li>
+<li><p><strong>Labels</strong>: You can include information about the container, such as the container’s name, version, and author.</p></li>
+<li><p><strong>Help</strong>: You can include a brief description of the container, which is useful for users who are trying to understand what the container does.</p></li>
+</ol>
+<p>It’s worth noting that depending on the complexity of your container and the requirements of your application, you may need to include additional commands and instructions in your definition file.</p>
+<section id="header" class="level3">
+<h3 class="anchored" data-anchor-id="header"><strong><code>header</code></strong></h3>
+<p>In a Singularity definition file, the “header” refers to the first section of the file that contains metadata and instructions for building the container. The header typically includes information such as the container’s name, version, and author, as well as instructions for obtaining and installing the software that the container is designed to run. The header also can include instructions for configuring the build environment, such as setting environment variables or installing dependencies. The header is usually written in a specific format (e.g.&nbsp;#!Singularity) and starts at the first line of the file.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>        <span class="co">#!Singularity</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">Bootstrap:</span> library</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">From:</span> ubuntu:20.04</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%help</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">This</span> container runs Stata.</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%labels</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">AUTHOR</span> BPLIM</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="ex">VERSION</span> v1.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This header uses the <code>Bootstrap: library</code> to indicate that the container should be built using the Singularity Library, and uses the <code>From: ubuntu:20.04</code> to indicate that the container is based on the Ubuntu 20.04 image. This header also includes a <code>%help</code> section that provides a brief description of the container, and a <code>%labels</code> section that includes information about the container’s author and version.</p>
+<p>It’s worth noting that the way headers are written is not fixed and different instructions could be included.</p>
+</section>
+<section id="runscript" class="level3">
+<h3 class="anchored" data-anchor-id="runscript"><strong><code>runscript</code></strong></h3>
+<p>The “runscript” in a Singularity definition file is a script that is executed when the container is run. It typically contains commands to set up the environment and launch the application or process that the container is designed to run. The <code>runscript</code> is executed by the Singularity runtime after the container is started, and it can be used to configure the container’s environment, set up the application, and launch the application or process.</p>
+<p>An example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%runscript</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">Rscript</span> myscript.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In case you want the container to execute a Stata .do file you can write something along the following lines:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%runscript</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">[</span> <span class="va">$#</span> <span class="ot">-ne</span> 1 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="bu">echo</span> <span class="st">"Please provide the main script"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">exit</span> 1</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">stata-mp</span> <span class="at">-e</span> do <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="fu">tail</span> <span class="at">-1</span> <span class="st">"</span><span class="va">$log</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">egrep</span> <span class="st">"^r\([0-9]+\);"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">then</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">exit</span> 1</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">exit</span> 0</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To launch Stata in graphical mode, your run script should look something like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%runscript</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">xstata-mp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If your container is named container_name.sif, you can launch Stata inside the container using the Terminal by typing the following command:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./container_name.sif</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to execute a particular file, you should type the following command in the Terminal:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./container_name.sif</span> MyDoFile.do</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="files" class="level3">
+<h3 class="anchored" data-anchor-id="files"><strong><code>files</code></strong></h3>
+<p>The <code>%files</code> section in a Singularity definition file is used to specify files or directories that should be included in the container image when it is built. Here is an example of what you might include in the <code>%files</code> section:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%files</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/path/to/myfile1.txt</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/path/to/mydir1</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/path/to/myfile2.sh</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/path/to/mydir2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This would include the files <code>myfile1.txt</code> and <code>myfile2.sh</code> and the directories <code>mydir1</code> and <code>mydir2</code> in the container image, with the same paths.</p>
+<p>You can also use wildcard to copy multiple files or directories, for example :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%files</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/path/to/mydir/*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This would include all files and directories in the folder <code>mydir</code> in the container image.</p>
+<p>It’s worth noting that the <code>%files</code> section is optional, you don’t need to include it in your definition file if you don’t need to add any additional files to your container. Also, the <code>%files</code> section is only useful when creating a new container, if you want to add files to an existing container you can use the singularity copy command.</p>
+</section>
+<section id="environment" class="level3">
+<h3 class="anchored" data-anchor-id="environment"><strong><code>environment</code></strong></h3>
+<p>The <code>%environment</code> section in a Singularity definition file is used to specify environment variables that should be set when the container is run. Here is an example of what you might include in the <code>%environment</code> section to build a container running R version 4.1.1:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%environment</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">R_VERSION</span><span class="op">=</span>4.1.1</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">R_HOME</span><span class="op">=</span>/usr/lib/R/<span class="va">$R_VERSION</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span>:<span class="va">$R_HOME</span>/bin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will set the environment variable <code>R_VERSION</code> to <code>4.1.1</code>, the environment variable <code>R_HOME</code> to <code>/usr/lib/R/4.1.1</code> and the environment variable <code>PATH</code> to include the R’s binary path <code>\$R_HOME/bin</code></p>
+<p>You can use these environment variables in your <code>%post</code> or <code>%runscript</code> sections to install R 4.1.1 and run commands with the R version 4.1.1.</p>
+<p>This will set the environment variable <code>R_VERSION</code> to 4.1.1, the environment variable R_HOME to <code>/usr/lib/R/4.1.1</code> and the environment variable PATH to include the R’s binary path <code>\$R_HOME/bin</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%post</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> r-base=<span class="va">$R_VERSION</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It’s worth noting that you can also use <code>ENV</code> instruction in place of export and you can use <code>%environment</code> section to set any environment variable you want, not only R.</p>
+</section>
+<section id="post" class="level3">
+<h3 class="anchored" data-anchor-id="post"><strong><code>post</code></strong></h3>
+<p>The <code>%post</code> section in a Singularity definition file is used to specify commands that should be run during the container build process, after the base image has been imported. Here is an example of what you might include in the <code>%post</code> section to build a container running R version 4.1.1 and the most recent version of RStudio Server:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%post</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># update package lists and install R 4.1.1</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> r-base=<span class="va">$R_VERSION</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># add RStudio repository and key</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"deb https://cran.rstudio.com/bin/linux/ubuntu </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">        bionic-cran35/"</span> <span class="kw">|</span> <span class="fu">tee</span> <span class="at">-a</span> /etc/apt/sources.list</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-key</span> adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">E298A3A825C0D65DFD57CBB651716619E084DAB9</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install RStudio Server</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> rstudio-server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will update the package lists, install R version 4.1.1 using the environment variable set before and add the RStudio repository and key to the container, then install RStudio Server on the container.</p>
+<p>It’s worth noting that this example assumes that the container is based on Ubuntu 20.04 (codenamed ‘focal’), if you are using a different version or distribution you should adjust the package manager commands and repository URLs accordingly.</p>
+<p>Also, the <code>%post</code> section is optional and you don’t need to include it in your definition file if you don’t need to run any additional command during the container building process.</p>
+<p>If you also want to include Jupyter Notebook, the R kernel and R <em>nbextensions</em> in your container, you can add the following commands to the <code>%post</code> section of your Singularity definition file:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%post</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># update package lists and install R 4.1.1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> r-base=<span class="va">$R_VERSION</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># add RStudio repository and key</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"deb https://cran.rstudio.com/bin/linux/ubuntu </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="st">        bionic-cran35/"</span> <span class="kw">|</span> <span class="fu">tee</span> <span class="at">-a</span> /etc/apt/sources.list</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-key</span> adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">E298A3A825C0D65DFD57CBB651716619E084DAB9</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install RStudio Server</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> rstudio-server</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install Jupyter</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> install <span class="at">-y</span> jupyter-core</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install R kernel for Jupyter</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"install.packages(c('repr', 'IRdisplay', 'evaluate', </span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="st">        'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'), </span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="st">        repos='https://cloud.r-project.org/')"</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"devtools::install_github('IRkernel/IRkernel')"</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"IRkernel::installspec(user = FALSE)"</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install R nbextensions</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"install.packages('devtools', repos = </span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="st">        'https://cloud.r-project.org/')"</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"devtools::install_github('randy3k/r-notebook')"</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will install Jupyter, the R kernel for Jupyter, and the R <code>nbextensions</code> for Jupyter Notebook.</p>
+<p>It’s worth noting that these commands are installing R packages from CRAN and GitHub repositories, so you may want to check that these repositories are available on your system and that you have internet connection during the container build process.</p>
+<p>Note: you can install packages from binaries.</p>
+</section>
+<section id="including-additional-packages" class="level3">
+<h3 class="anchored" data-anchor-id="including-additional-packages">Including additional packages</h3>
+<p>To include TinyTeX and machine learning packages in your container, you can add the following commands to the <code>%post</code> section of your Singularity definition file:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%post</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># update package lists and install R 4.1.1</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> r-base=<span class="va">$R_VERSION</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># add RStudio repository and key</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"deb https://cran.rstudio.com/bin/linux/ubuntu</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">        bionic-cran35/"</span> <span class="kw">|</span> <span class="fu">tee</span> <span class="at">-a</span> /etc/apt/sources.list</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-key</span> adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="ex">E298A3A825C0D65DFD57CBB651716619E084DAB9</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install RStudio Server</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> rstudio-server</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install Jupyter</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> install <span class="at">-y</span> jupyter-core</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install R kernel for Jupyter</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"install.packages(c('repr', 'IRdisplay', 'evaluate',</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="st">        'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'),</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="st">        repos='https://cloud.r-project.org/')"</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"devtools::install_github('IRkernel/IRkernel')"</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"IRkernel::installspec(user = FALSE)"</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install R nbextensions</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"install.packages('devtools', repos = </span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="st">        'https://cloud.r-project.org/')"</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"devtools::install_github('randy3k/r-notebook')"</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install TinyTeX</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">wget</span> <span class="at">-qO-</span> <span class="st">"https://github.com/yihui/tinytex/raw/main/tools/inst</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="st">        all-unx.sh"</span> <span class="kw">|</span> <span class="fu">sh</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># install additional R packages</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>        <span class="ex">R</span> <span class="at">-e</span> <span class="st">"install.packages(c('caret','randomForest','e1071','gbm','</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="st">        xgboost', 'lightgbm','catboost','mlr','tidymodels','h2o','caret</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="st">        Ensemble','pROC','ROCR',  </span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="st">        'pROC.plot','ROCR.plot','kernlab','pls','neuralnet','nnet'), </span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="st">        repos='https://cloud.r-project.org/')"</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will install TinyTeX, which is a lightweight, cross-platform, and easy-to-maintain LaTeX distribution and also some popular machine learning packages such as caret, <code>randomForest</code>, <code>e1071</code>, <code>gbm</code>, <code>xgboost</code>, <code>lightgbm</code>, <code>catboost</code>, <code>mlr</code>, <code>tidymodels</code>, <code>h2o</code>, <code>caretEnsemble</code>, <code>pROC</code>, <code>ROCR</code>, <code>pROC.plot</code>, <code>ROCR.plot</code>, <code>kernlab</code>, <code>pls</code>, <code>neuralnet</code>, and <code>nnet</code>.</p>
+</section>
+<section id="cleaning-temporary-files" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-temporary-files">Cleaning temporary files</h3>
+<p>To clean up temporary files during the build process of your container, you can add the following command to the <code>%post</code> section of your Singularity definition file:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%post</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... other commands ...</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># clean up temporary files</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> clean <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> /var/lib/apt/lists/<span class="pp">*</span> /tmp/<span class="pp">*</span> /var/tmp/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command will remove all temporary files created during the installation of packages, including package lists and downloaded package files. By doing this, it will help to keep your container’s size as small as possible, and can also help to avoid potential issues with the container.</p>
+<p>You can also include this set of commands at the end of your <code>%runscript</code>, so that when the container runs it will clean temporary files after the completion of the container’s job.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">%runscript</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="co"># commands to run your container</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="ex">...</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="ex">apt-get</span> clean <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> /var/lib/apt/lists/<span class="pp">*</span> /tmp/<span class="pp">*</span> /var/tmp/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will keep your container clean and ready for the next run.</p>
+<p>In the example provided in the <a href="#appendix">Appendix</a> we also added:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> update</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> autoremove</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt-get</span> autoclean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="building-the-container" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-container">Building the container</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">time</span> singularity build <span class="at">--fakeroot</span> iPROJECT_ID_BPLIM.sif PROJECT_ID_BPLIM.def</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We usually name the image with the prefix <code>i</code> followed by the name of the definition file. For example, <code>iBPLIM-Stata_V1.sif</code>, where the definition file is named <code>BPLIM-Stata_V1.def</code>.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="building-the-container-online" class="level1">
+<h1>Building the container online</h1>
+<p>There are several cloud-based solutions that allow you to build Singularity containers online. Here are a few options:</p>
+<ol type="1">
+<li><p><a href="https://cloud.sylabs.io/"><strong>Sylabs</strong></a></p></li>
+<li><p><a href="https://singularityhub.github.io/"><strong>Singularity Hub</strong></a>: This is a cloud-based service that allows you to build and host Singularity containers. You can connect your GitHub or GitLab repository to Singularity Hub, and it will automatically build your container when changes are pushed to the repository.</p></li>
+<li><p><a href="https://portal.azure.com/"><strong>Azure Container Instances</strong></a>: You can use Azure Container Instances (ACI) to build and run Singularity containers in the cloud. This service allows you to create and manage containers without the need to manage the underlying infrastructure.</p></li>
+<li><p><a href="https://cloud.google.com/build"><strong>Google Cloud Build</strong></a>: You can use Google Cloud Build to build your Singularity containers in the cloud. Cloud Build can be triggered by pushes to a connected GitHub or Bitbucket repository.</p></li>
+<li><p><a href="https://aws.amazon.com/batch/"><strong>AWS Batch</strong></a>: AWS Batch is a service that allows you to run batch computing workloads on the AWS cloud. You can use AWS Batch to build your Singularity containers in the cloud.</p></li>
+<li><p><a href="https://about.gitlab.com/blog/2016/05/23/gitlab-container-registry/"><strong>GitLab’s Container Registry</strong></a>: GitLab’s Container Registry is a built-in feature of GitLab that allows you to build and store your container images directly in your GitLab repository.</p></li>
+</ol>
+<p>Each of these services has its own unique set of features and pricing plans. You should evaluate each one based on your specific needs and requirements.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="an-example-of-a-singularity-definition-file" class="level2">
+<h2 class="anchored" data-anchor-id="an-example-of-a-singularity-definition-file">An example of a Singularity definition file</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>        <span class="ex">Bootstrap:</span> docker</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">From:</span> ubuntu:20.04</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">IncludeCmd:</span> yes</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%runscript</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">[</span> <span class="va">$#</span> <span class="ot">-ne</span> 1 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Please provide the main script"</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">exit</span> 1</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>            <span class="ex">stata-mp</span> <span class="at">-e</span> do <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="fu">tail</span> <span class="at">-1</span> <span class="st">"</span><span class="va">$log</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">egrep</span> <span class="st">"^r\([0-9]+\);"</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">then</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>                <span class="bu">exit</span> 1</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">exit</span> 0</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%files</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>          <span class="ex">/mnt/cephfs/home/exu0o9@bdp.pt/containers/</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>          <span class="ex">_SOURCES/libpng12-0_1.2.54-1ubuntu1.11ppa0eoan_amd64.deb</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>          <span class="ex">/mnt/cephfs/home/exu0o9@bdp.pt/containers/</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>          <span class="ex">_SOURCES/stata17.tar.gz</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>          <span class="ex">/mnt/cephfs/home/exu0o9@bdp.pt/containers/</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>          <span class="ex">_SOURCES/stata_container_just_Stata.do</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%environment</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>          <span class="va">R_VERSION</span><span class="op">=</span>4.1.0</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>          <span class="bu">export</span> <span class="va">R_VERSION</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>          <span class="va">R_CONFIG_DIR</span><span class="op">=</span>/etc/R/</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>          <span class="bu">export</span> <span class="va">R_CONFIG_DIR</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>          <span class="bu">export</span> <span class="va">LC_ALL</span><span class="op">=</span>C</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>          <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$PATH</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>           <span class="va">TZ</span><span class="op">=</span>Europe/Lisbon</span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>           <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/opt/stata17:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%labels</span></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>          <span class="ex">Author</span>         :: Gustavo Iglesias and Miguel Portela <span class="at">-</span> </span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>                            <span class="ex">BPLIM</span></span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>          <span class="ex">Version</span>        :: <span class="er">(</span><span class="ex">just</span><span class="kw">)</span> <span class="ex">Stata</span> <span class="at">--</span> V1.0.1</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>          <span class="ex">Build_date</span>     :: January 12, 2023</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>        <span class="ex">%post</span></span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>        <span class="ex">apt</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> update <span class="kw">&amp;&amp;</span></span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>        <span class="va">DEBIAN_FRONTEND</span><span class="op">=</span><span class="st">"noninteractive"</span> <span class="va">TZ</span><span class="op">=</span><span class="st">"Europe/London"</span> <span class="ex">apt-get</span></span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>        <span class="ex">-y</span> install apt-transport-https apt-utils</span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>        <span class="ex">software-properties-common</span> dirmngr curl wget xkb-data x11-apps</span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>        <span class="fu">bzip2</span> qt5-default mesa-utils libgl1-mesa-dev libgl1-mesa-glx</span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libegl1-mesa</span> libxrandr2 libxss1 libxcursor1 libxcomposite1</span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libasound2</span> libxi6 libxtst6 iproute2 swig build-essential</span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libnss3</span> net-tools unixodbc-dev git vim krb5-user libncurses5</span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libxml2-dev</span> libsasl2-dev libldap2-dev libssl-dev libnlopt-dev</span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>        <span class="ex">gnupg</span> gnupg2 unixodbc gfortran nano cmake libblas3 libblas-dev</span>
+<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>        <span class="ex">liblapack-dev</span> liblapack3 aptitude xorg-dev libreadline-dev</span>
+<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libpcre3-dev</span> liblzma-dev libbz2-dev libcurl4-openssl-dev</span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libmagick++-dev</span> libhdf5-dev hdf5-helpers gsl-bin libgsl-dev</span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libgsl23</span> libgslcblas0 libgdal-dev libproj-dev libnss3</span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>        <span class="ex">libzmq3-dev</span> libgtk2.0-0</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  Stata</span></span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>            <span class="fu">tar</span> <span class="at">-xvzf</span>/mnt/cephfs/home/exu0o9@bdp.pt/containers/_SOURCES</span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a>            <span class="ex">/stata17.tar.gz</span> <span class="at">--no-same-owner</span></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mv</span> stata17 /opt/</span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>            <span class="ex">dpkg</span> <span class="at">-i</span>/mnt/cephfs/home/exu0o9@bdp.pt/containers/_SOURCES</span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>            <span class="ex">/libpng12-0_1.2.54-1ubuntu1.11ppa0eoan_amd64.deb</span></span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>            <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/opt/stata17:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a>            <span class="co"># install ado files</span></span>
+<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mkdir</span> /opt/stata17/ado/plus</span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a>            <span class="ex">stata-mp</span> <span class="at">-b</span> do</span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>            <span class="ex">/mnt/cephfs/home/exu0o9@bdp.pt/containers/_SOURCES/</span></span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>            <span class="ex">stata_container_just_Stata.do</span></span>
+<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>                <span class="fu">chmod</span> <span class="at">-R</span> ugo=rx /opt/stata17/</span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CLEAN temporary files</span></span>
+<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>            <span class="ex">apt-get</span> update</span>
+<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a>            <span class="ex">apt-get</span> autoremove</span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>            <span class="ex">apt-get</span> autoclean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="page-break-after: always;"></div>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See the installation notes on <a href="https://docs.sylabs.io/guides/3.2/user-guide/installation.html">Sylabs</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>For more information, please visit <a href="https://github.com/BPLIM">BPLIM’s GitHub resources</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>BPLIM@bportugal.pt</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
