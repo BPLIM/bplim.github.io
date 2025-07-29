@@ -73,7 +73,7 @@ website:
           - text: "Guide for researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
           - text: "Datasets guide"
-            href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v102024.qmd
+            href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v072025.qmd
           - text: "External server"
             href: Guides/03_External_Server/External_Server_Guide.qmd
           - text: "Using Git"
