@@ -32,15 +32,15 @@ website:
         menu:
           - text: "Guide for researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
-          - text: "Datasets guide"
+          - text: "Datasets Guide"
             href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v072025.qmd
-          - text: "External server"
+          - text: "External Server"
             href: Guides/03_External_Server/External_Server_Guide.qmd
           - text: "Using Git"
             href: Guides/04_How_to_use_Git/Guide_Git.qmd
-          - text: "How to use containers"
+          - text: "How to use Containers"
             href: Guides/05_How_to_use_Containers/Guide_Containers.qmd
-          - text: "Output control"
+          - text: "Output Control"
             href: Guides/06_Output_Control/Output_Control_Guide.qmd
           - text: "Work with Pseudo-Data"
             href: Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.qmd
@@ -72,15 +72,15 @@ website:
         contents:
           - text: "Guide for researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
-          - text: "Datasets guide"
+          - text: "Datasets Guide"
             href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v072025.qmd
-          - text: "External server"
+          - text: "External Server"
             href: Guides/03_External_Server/External_Server_Guide.qmd
           - text: "Using Git"
             href: Guides/04_How_to_use_Git/Guide_Git.qmd
-          - text: "How to use containers"
+          - text: "How to use Containers"
             href: Guides/05_How_to_use_Containers/Guide_Containers.qmd
-          - text: "Output control"
+          - text: "Output Control"
             href: Guides/06_Output_Control/Output_Control_Guide.qmd
           - text: "Work with Pseudo-Data"
             href: Guides/07_Working_with_Pseudo-Data/pseudo_data_guide.qmd
