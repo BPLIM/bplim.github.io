@@ -30,7 +30,7 @@ website:
       - text: "Guides"
         href: guides.qmd
         menu:
-          - text: "Guide for researchers"
+          - text: "Guide for Researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
           - text: "Datasets Guide"
             href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v072025.qmd
@@ -70,7 +70,7 @@ website:
       - section: "Guides"
         href: guides.qmd
         contents:
-          - text: "Guide for researchers"
+          - text: "Guide for Researchers"
             href: Guides/01_Guide_for_Researchers/Guide_for_researchers_v072024.qmd
           - text: "Datasets Guide"
             href: Guides/02_BPLIM_Datasets_Guide/BPLIM_Datasets_Guide_v072025.qmd
